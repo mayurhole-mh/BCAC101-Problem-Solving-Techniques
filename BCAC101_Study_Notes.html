@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCAC101 - Problem Solving Techniques - Complete Study Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2d2d2d;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #1a237e;
+            font-size: 2.2em;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1a237e;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #0d47a1;
+            font-size: 1.7em;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #0d47a1;
+            border-radius: 0 8px 8px 0;
+        }
+        h3 {
+            color: #1565c0;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+        h4 {
+            color: #1976d2;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        ul {
+            margin: 10px 0 15px 25px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        strong {
+            color: #0d47a1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 20px 0;
+            font-size: 0.95em;
+        }
+        th {
+            background-color: #0d47a1;
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 9px 14px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f7fa;
+        }
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        pre {
+            background-color: #263238;
+            color: #aed581;
+            padding: 15px 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 12px 0 15px 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .inline-code {
+            background-color: #e8eaf6;
+            color: #c62828;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .unit-overview {
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            padding: 15px 20px;
+            margin: 15px 0 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .unit-overview p {
+            margin-bottom: 0;
+            color: #1b5e20;
+        }
+        .exam-focus {
+            background-color: #fff3e0;
+            border: 2px solid #ef6c00;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .exam-focus h3 {
+            color: #e65100;
+            border-bottom: 2px solid #ef6c00;
+            margin-top: 0;
+        }
+        .exam-focus li {
+            color: #bf360c;
+        }
+        .toc {
+            background-color: #f5f5f5;
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+        }
+        .toc h2 {
+            background: none;
+            border-left: none;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .toc ol {
+            margin-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 5px;
+        }
+        .toc a {
+            color: #0d47a1;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .keyword-box {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fffde7;
+            border-left: 4px solid #f9a825;
+            padding: 10px 15px;
+            margin: 12px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .note strong {
+            color: #f57f17;
+        }
+        hr {
+            border: none;
+            border-top: 2px dashed #ccc;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1>BCAC101 - Problem Solving Techniques</h1>
+<p class="subtitle">Yashwantrao Chavan Maharashtra Open University (YCMOU)<br/>Complete Unit-Wise Study Notes</p>
+
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#unit1">Unit 1: Introduction to Computers</a></li>
+        <li><a href="#unit2">Unit 2: Techniques of Problem Solving</a></li>
+        <li><a href="#unit3">Unit 3: Planning the Computer Program</a></li>
+        <li><a href="#unit4">Unit 4: Introduction to C Language</a></li>
+        <li><a href="#unit5">Unit 5: Managing Input and Output Operations</a></li>
+        <li><a href="#unit6">Unit 6: Decision Making and Looping</a></li>
+        <li><a href="#unit7">Unit 7: Arrays</a></li>
+        <li><a href="#unit8">Unit 8: Strings</a></li>
+        <li><a href="#unit9">Unit 9: Functions</a></li>
+        <li><a href="#unit10">Unit 10: Pointers</a></li>
+        <li><a href="#unit11">Unit 11: Structures and Unions</a></li>
+        <li><a href="#unit12">Unit 12: File Handling</a></li>
+        <li><a href="#unit13">Unit 13: Storage Classes</a></li>
+        <li><a href="#unit14">Unit 14: The C Preprocessor</a></li>
+    </ol>
+</div>
+
+<!-- ==================== UNIT 1 ==================== -->
+<h2 id="unit1">Unit 1: Introduction to Computers</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit introduces the basic concept of a computer, its characteristics, uses in various fields, types, generations, and the basic organization including CPU, memory hierarchy, registers, and I/O devices. It builds the foundation for understanding how computers work.</p>
+</div>
+
+<h3>1.1 What is a Computer?</h3>
+<p>A computer is an <strong>electronic device</strong> that receives input, stores or processes the input as per user instructions, and provides output in a desired format. It can carry out sequences of arithmetic or logical operations automatically based on programs (sets of instructions). Computers are used in almost every field today, from simple devices like microwave ovens to complex systems like industrial robots and smartphones.</p>
+
+<h3>1.2 Characteristics of Computers</h3>
+<ul>
+    <li><strong>Speed:</strong> Computers can perform complex calculations at very high speed, much faster than any human being.</li>
+    <li><strong>Accuracy:</strong> Computers produce 100% accurate results when given correct input and instructions.</li>
+    <li><strong>Storage:</strong> Computers can store huge amounts of data in appropriate formats for future use.</li>
+    <li><strong>Diligence:</strong> Computers can work for hours without any break or errors. They never get tired or bored.</li>
+    <li><strong>Versatility:</strong> Computers can perform various types of tasks. No field today is untouched by computers.</li>
+    <li><strong>Intelligence:</strong> Computers do not have their own intelligence. They work only according to the instructions given by the user.</li>
+</ul>
+
+<h3>1.3 Uses of Computers</h3>
+<p>Computers have become an essential part of modern human life. Some major areas of use include:</p>
+<ul>
+    <li><strong>Education:</strong> Distance learning, research, online classes, and digital libraries.</li>
+    <li><strong>Health and Medicine:</strong> Digitized medical records, ECG, radiotherapy, and diagnostic tools.</li>
+    <li><strong>Financial Institutions:</strong> Banks use computers to store account holder information, manage cash flow, and provide online banking services.</li>
+    <li><strong>Entertainment:</strong> Playing games, watching movies, listening to music, and creating digital art.</li>
+    <li><strong>Transport System:</strong> Online reservation systems, traffic control, and navigation using GPS.</li>
+    <li><strong>Businesses:</strong> Email communication, video conferencing, marketing, stock exchanges, and record keeping.</li>
+    <li><strong>E-Commerce:</strong> Online shopping, electronic banking, and digital transactions.</li>
+    <li><strong>Security and Defense:</strong> Designing missiles, satellite communication, GPS tracking, and criminal record maintenance.</li>
+    <li><strong>Computer as Designer:</strong> Designing buildings, magazines, safety equipment, and using AI for creative work.</li>
+</ul>
+
+<h3>1.4 Types of Computers</h3>
+<p>Computers are classified on the basis of their size and use:</p>
+<ul>
+    <li><strong>Desktop:</strong> Personal computer designed for regular use at a single location.</li>
+    <li><strong>Laptop:</strong> Portable personal computer for mobile use.</li>
+    <li><strong>Tablet:</strong> Touchscreen-based portable computing device.</li>
+    <li><strong>Server:</strong> Powerful computer that provides services to other computers on a network.</li>
+    <li><strong>Mainframe:</strong> Large, powerful computer used by big organizations for bulk data processing.</li>
+    <li><strong>Supercomputer:</strong> The fastest and most powerful computer used for scientific and research purposes.</li>
+</ul>
+
+<h3>1.5 Generations of Computers</h3>
+<table>
+    <tr>
+        <th>Generation</th>
+        <th>Period</th>
+        <th>Technology Used</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td><strong>First</strong></td>
+        <td>1942-1955</td>
+        <td>Vacuum Tubes</td>
+        <td>ENIAC, UNIVAC-1</td>
+    </tr>
+    <tr>
+        <td><strong>Second</strong></td>
+        <td>1955-1964</td>
+        <td>Transistors</td>
+        <td>IBM 700, IBM 1401</td>
+    </tr>
+    <tr>
+        <td><strong>Third</strong></td>
+        <td>1964-1975</td>
+        <td>Integrated Circuits (IC)</td>
+        <td>IBM 370, IBM System/360</td>
+    </tr>
+    <tr>
+        <td><strong>Fourth</strong></td>
+        <td>1975-Present</td>
+        <td>Microprocessors (VLSI)</td>
+        <td>Apple Macintosh, IBM PC</td>
+    </tr>
+    <tr>
+        <td><strong>Fifth</strong></td>
+        <td>Present &amp; Beyond</td>
+        <td>Artificial Intelligence (AI)</td>
+        <td>IBM Watson</td>
+    </tr>
+</table>
+
+<h4>First Generation (1942-1955)</h4>
+<ul>
+    <li>Used vacuum tubes for processing.</li>
+    <li>Very large in size, consumed a lot of energy, and heated quickly.</li>
+    <li>Required air conditioning and constant maintenance.</li>
+    <li>Not portable and not very reliable.</li>
+</ul>
+
+<h4>Second Generation (1955-1964)</h4>
+<ul>
+    <li>Used transistors instead of vacuum tubes, making computers smaller and more reliable.</li>
+    <li>Used less energy, faster speed (microseconds), and wider commercial use.</li>
+    <li>Used Assembly language instead of Machine language.</li>
+    <li>Cooling system was still required; punch cards were used for input.</li>
+</ul>
+
+<h4>Third Generation (1964-1975)</h4>
+<ul>
+    <li>Used Integrated Circuits (IC) which contained thousands of transistors on a single chip.</li>
+    <li>Smaller, faster (nanoseconds), more reliable, and less expensive.</li>
+    <li>Used mouse and keyboard for input. Supported high-level languages.</li>
+    <li>Air conditioning was still required.</li>
+</ul>
+
+<h4>Fourth Generation (1975-Present)</h4>
+<ul>
+    <li>Used Microprocessors (VLSI technology) containing millions of electronic circuits.</li>
+    <li>Small in size, very powerful, fast, and cheapest among all generations.</li>
+    <li>No air conditioning required. Totally general purpose.</li>
+    <li>Supports all types of high-level languages.</li>
+</ul>
+
+<h4>Fifth Generation (Present &amp; Beyond)</h4>
+<ul>
+    <li>Based on Artificial Intelligence (AI).</li>
+    <li>Can understand spoken words and imitate human reasoning.</li>
+    <li>Uses sensors to respond to surroundings.</li>
+    <li>Scientists are trying to create computers with real IQ using advanced programming.</li>
+</ul>
+
+<h3>1.6 Basic Computer Organization</h3>
+<p>A computer system consists of the following main units:</p>
+<ul>
+    <li><strong>Input Unit:</strong> Enters data and programs into the computer system. Examples: keyboard, mouse, scanner.</li>
+    <li><strong>Storage Unit:</strong> Saves data and instructions permanently. Stores data before and after processing, as well as intermediate results.</li>
+    <li><strong>Processing Unit (CPU):</strong> Performs arithmetic and logical operations. It takes data from storage, processes it, and sends results back.</li>
+    <li><strong>Output Unit:</strong> Produces results in human-readable form. Examples: monitor, printer, speaker.</li>
+    <li><strong>Control Unit:</strong> Directs and coordinates all operations of the computer. It determines the sequence of execution.</li>
+</ul>
+
+<h4>Central Processing Unit (CPU)</h4>
+<p>The CPU is the brain of the computer. It consists of two parts:</p>
+<ul>
+    <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs arithmetic operations (addition, subtraction, multiplication, division) and logical operations (comparison, decision making).</li>
+    <li><strong>CU (Control Unit):</strong> Coordinates all computer operations, interprets instructions, and sends signals to other units for execution.</li>
+</ul>
+
+<h3>1.7 Memory Hierarchy</h3>
+<p>Memory in a computer is organized in a hierarchy from fastest and smallest to slowest and largest:</p>
+<table>
+    <tr>
+        <th>Level</th>
+        <th>Memory Type</th>
+        <th>Speed</th>
+        <th>Size</th>
+    </tr>
+    <tr>
+        <td>1 (Fastest)</td>
+        <td>Registers</td>
+        <td>Fastest</td>
+        <td>Smallest</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Cache Memory</td>
+        <td>Very Fast</td>
+        <td>Small</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Main Memory (RAM)</td>
+        <td>Fast</td>
+        <td>Moderate</td>
+    </tr>
+    <tr>
+        <td>4 (Slowest)</td>
+        <td>Secondary Storage (Hard Disk)</td>
+        <td>Slowest</td>
+        <td>Largest</td>
+    </tr>
+</table>
+
+<h4>Types of Registers</h4>
+<ul>
+    <li><strong>MAR (Memory Address Register):</strong> Holds the memory addresses of data and instructions to be accessed.</li>
+    <li><strong>Program Counter (PC):</strong> Keeps track of the next memory address of the instruction to be executed.</li>
+    <li><strong>Accumulator Register:</strong> Stores the results produced by the system.</li>
+    <li><strong>MDR (Memory Data Register):</strong> Contains data to be stored or data fetched from memory.</li>
+    <li><strong>Index Register:</strong> Used for modifying operand addresses during program execution.</li>
+    <li><strong>Memory Buffer Register (MBR):</strong> Holds data or instruction read from or written to memory.</li>
+    <li><strong>Data Register:</strong> Temporarily stores data being transmitted to or from a peripheral device.</li>
+</ul>
+
+<h3>1.8 Input/Output Devices</h3>
+<ul>
+    <li><strong>Keyboard:</strong> Most common input device for typing data and instructions.</li>
+    <li><strong>Mouse:</strong> Pointing device used to control cursor movement on screen.</li>
+    <li><strong>Scanner:</strong> Converts printed/written information including photographs into digital form.</li>
+    <li><strong>Track Ball:</strong> Similar to an upside-down mouse; the user spins the ball directly.</li>
+    <li><strong>Light Pen:</strong> Input device used to draw lines or figures on a computer screen.</li>
+    <li><strong>Optical Character Reader (OCR):</strong> Detects alphanumeric characters printed or written on paper.</li>
+    <li><strong>Bar Code Reader:</strong> Reads bar codes and converts them into electric pulses for processing.</li>
+    <li><strong>Voice Input Systems:</strong> Converts spoken words to machine language form.</li>
+    <li><strong>Plotter:</strong> Output device used to produce graphical output on paper.</li>
+    <li><strong>Digital Camera:</strong> Converts graphics directly into digital form using a CCD chip.</li>
+</ul>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Definition of computer and its characteristics (Speed, Accuracy, Storage, Diligence, Versatility, Intelligence).</li>
+        <li>Five generations of computers with their technologies and examples.</li>
+        <li>Block diagram of computer and functions of ALU, CU, and CPU.</li>
+        <li>Memory hierarchy and types of registers.</li>
+        <li>Input and output devices with their functions.</li>
+        <li>Uses of computers in various fields.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 2 ==================== -->
+<h2 id="unit2">Unit 2: Techniques of Problem Solving</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the concept of problem solving, problem definition, program design, flowcharting, decision tables, algorithms, and structured programming concepts. These are the fundamental tools used before writing any computer program.</p>
+</div>
+
+<h3>2.1 Concept of Problem Solving</h3>
+<p>Problem solving consists of using methods in an orderly manner for finding solutions to problems. It is an art that can be mastered by learning the tools used for solving problems. The famous mathematician George Polya described four steps of problem solving in his book "How to Solve It?" (1945):</p>
+<ol>
+    <li><strong>Understand the Problem:</strong> Know what the problem is, what the input is, and whether there is enough information to solve it.</li>
+    <li><strong>Devise a Plan:</strong> Find a strategy to solve the problem. Strategies include trial and error, drawing a picture, looking for a pattern, making a list, solving a simpler problem, using a variable, or writing an equation.</li>
+    <li><strong>Carry Out the Plan:</strong> Execute the plan. If one strategy does not work, try a different one.</li>
+    <li><strong>Look Back:</strong> Examine the solution. Is the problem solved completely? Is there an easier way? This helps in solving future problems.</li>
+</ol>
+
+<h3>2.2 Problem Definition</h3>
+<p>Before writing a program, it is important to define the problem clearly. A systems analyst looks at the following issues:</p>
+<ul>
+    <li>What is the problem?</li>
+    <li>What is the input required for supporting the solution?</li>
+    <li>What is the expected output?</li>
+    <li>How do people solve the problem currently?</li>
+    <li>Can the problem be more effectively solved by software?</li>
+</ul>
+
+<h3>2.3 Program Design</h3>
+<p>Program design is the activity of progressing from a specification of some required program to a description of the program itself. It is one of the phases in the software life cycle. The input to this phase is a specification of what the program is required to do.</p>
+
+<h3>2.4 Flowcharts</h3>
+<p>A flowchart is a pictorial representation of an algorithm. It shows the step-by-step flow of a program using standard symbols connected by arrows.</p>
+
+<h4>Flowchart Symbols</h4>
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Shape</th>
+        <th>Use</th>
+    </tr>
+    <tr>
+        <td>Terminal</td>
+        <td>Oval</td>
+        <td>Indicates beginning and end of an algorithm</td>
+    </tr>
+    <tr>
+        <td>Input/Output</td>
+        <td>Parallelogram</td>
+        <td>Indicates input and output operations</td>
+    </tr>
+    <tr>
+        <td>Process</td>
+        <td>Rectangle</td>
+        <td>Indicates processing and assignment operations</td>
+    </tr>
+    <tr>
+        <td>Decision</td>
+        <td>Rhombus (Diamond)</td>
+        <td>Indicates a point where a decision is made</td>
+    </tr>
+    <tr>
+        <td>Preparation</td>
+        <td>Hexagon</td>
+        <td>Indicates beginning of a repetition structure</td>
+    </tr>
+    <tr>
+        <td>Predefined Process</td>
+        <td>Double-lined Rectangle</td>
+        <td>Points to where a subprogram is used</td>
+    </tr>
+    <tr>
+        <td>Flow Arrow</td>
+        <td>Arrow</td>
+        <td>Indicates direction of flow</td>
+    </tr>
+    <tr>
+        <td>Connector</td>
+        <td>Small Circle</td>
+        <td>Connects various parts of a flowchart</td>
+    </tr>
+    <tr>
+        <td>Document</td>
+        <td>Wavy Rectangle</td>
+        <td>Represents printout or report</td>
+    </tr>
+    <tr>
+        <td>Database</td>
+        <td>Cylinder Shape</td>
+        <td>Indicates database store</td>
+    </tr>
+</table>
+
+<h3>2.5 Algorithm</h3>
+<p>An algorithm is a finite set of steps defining the solution of a particular problem. It is expressed in simple English or pseudo code. The word "algorithm" was derived from the name of the Persian mathematician al-Khwarizmi.</p>
+
+<h4>Characteristics of an Algorithm</h4>
+<ul>
+    <li><strong>Definiteness:</strong> Each step must be precisely stated, clear, and unambiguous.</li>
+    <li><strong>Effectiveness:</strong> Every instruction must be capable of being carried out by a person with pen and paper.</li>
+    <li><strong>Finiteness:</strong> The algorithm must stop after a finite number of instructions.</li>
+    <li><strong>Input:</strong> The algorithm receives zero or more inputs.</li>
+    <li><strong>Output:</strong> The algorithm produces at least one output.</li>
+</ul>
+
+<h4>Example: Algorithm to Add Two Numbers</h4>
+<pre><code>Step 1: Start
+Step 2: Read the first number (fno)
+Step 3: Read the second number (sno)
+Step 4: Add them: sum = fno + sno
+Step 5: Display fno, sno, sum
+Step 6: Stop</code></pre>
+
+<h3>2.6 Structured Programming</h3>
+<p>C is called a structured programming language because it divides a large problem into smaller modules called functions or procedures. Each function handles a particular responsibility. The entire program is a collection of such functions, making it easy to understand, debug, and maintain.</p>
+
+<h3>2.7 Decision Tables</h3>
+<p>A decision table is a graphical method for explaining the logic of making decisions in tabular format. It consists of a set of conditions and a set of actions with different combinations of decisions. It is divided into four parts: Condition Stub, Condition Entry, Action Stub, and Action Entry.</p>
+
+<h4>Advantages of Decision Tables</h4>
+<ul>
+    <li>Provides compact representation of the decision-making process.</li>
+    <li>Easier to understand a particular path of logic.</li>
+    <li>Can be changed according to the situation.</li>
+    <li>Best suited for calculating discounts, commissions, or inventory control procedures.</li>
+    <li>Promotes a logically complete and consistent problem definition.</li>
+</ul>
+
+<h4>Disadvantages of Decision Tables</h4>
+<ul>
+    <li>Cannot express the complete sequence of operations to solve a problem.</li>
+    <li>If there are too many alternatives, it is difficult to list them.</li>
+    <li>Does not show the flow of logic for the solution.</li>
+</ul>
+
+<h3>2.8 Why Write Algorithm, Then Flowchart, Then Program?</h3>
+<p>The recommended sequence is: first write an algorithm, then draw a flowchart, and then write a program. This is because algorithms provide the systematic logic, flowcharts give the visual blueprint (like an architect's drawing before building), and programming is the actual implementation. Following this sequence makes development easier and helps in finding errors quickly.</p>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Four steps of problem solving (Understand, Devise Plan, Carry Out, Look Back).</li>
+        <li>Flowchart symbols and their uses (Oval, Parallelogram, Rectangle, Diamond, etc.).</li>
+        <li>Characteristics of an algorithm (Definiteness, Effectiveness, Finiteness, Input, Output).</li>
+        <li>Definition and structure of decision tables with advantages and disadvantages.</li>
+        <li>Concept of structured programming.</li>
+        <li>Drawing flowcharts and writing algorithms for simple problems (e.g., add two numbers, find area of circle).</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 3 ==================== -->
+<h2 id="unit3">Unit 3: Planning the Computer Program</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers programming methodologies (top-down and bottom-up), the concept of debugging, types of errors in programming, and documentation. These concepts help in planning and organizing a program before and after writing it.</p>
+</div>
+
+<h3>3.1 Programming Methodologies</h3>
+
+<h4>Top-Down Approach</h4>
+<p>In the top-down approach, we start with the overall problem and break it down into smaller sub-problems. Each sub-problem is then solved separately. It is also called <strong>stepwise refinement</strong>. This approach allows building solutions in a step-by-step manner, where complex details are handled only after the overall structure is understood.</p>
+
+<h4>Bottom-Up Approach</h4>
+<p>In the bottom-up approach, we identify lower-level tools and modules first, then compose them to develop a bigger program. The focus is on solving parts of the problem first, and then combining them to form the complete solution.</p>
+
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Top-Down Approach</th>
+        <th>Bottom-Up Approach</th>
+    </tr>
+    <tr>
+        <td>Starting Point</td>
+        <td>Starts from the main problem</td>
+        <td>Starts from smaller modules</td>
+    </tr>
+    <tr>
+        <td>Focus</td>
+        <td>Overall structure first</td>
+        <td>Individual parts first</td>
+    </tr>
+    <tr>
+        <td>Decomposition</td>
+        <td>Breaks problem into sub-problems</td>
+        <td>Combines modules into bigger program</td>
+    </tr>
+    <tr>
+        <td>Detail Handling</td>
+        <td>Details handled at the end</td>
+        <td>Details handled at the beginning</td>
+    </tr>
+    <tr>
+        <td>Suitable For</td>
+        <td>Large, complex problems</td>
+        <td>Problems with reusable components</td>
+    </tr>
+</table>
+
+<h3>3.2 Debugging</h3>
+<p>Debugging is the process of finding and resolving defects or problems within a program that prevent correct operation. A "bug" means an error, and "debugging" means correcting the error.</p>
+
+<h4>Types of Debugging</h4>
+<ul>
+    <li><strong>Print Debugging (Brute Force):</strong> Using print/trace statements to watch the flow of execution. Also called "printf debugging" due to the use of printf function in C.</li>
+    <li><strong>Backtracking:</strong> Starting from the statement where an error symptom was discovered, the source code is traced backward until the error is found. This can be tedious if many lines need to be traced.</li>
+    <li><strong>Cause Elimination Method:</strong> A list of possible causes is created, and each cause is tested and eliminated until the actual error is found.</li>
+    <li><strong>Remote Debugging:</strong> Debugging a program running on a system different from the debugger.</li>
+</ul>
+
+<h3>3.3 Types of Errors in Programming</h3>
+<table>
+    <tr>
+        <th>Error Type</th>
+        <th>Description</th>
+        <th>When Detected</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><strong>Syntax Error</strong></td>
+        <td>Related to grammar rules of the language</td>
+        <td>At compile time</td>
+        <td>Missing semicolon, misspelled keyword</td>
+    </tr>
+    <tr>
+        <td><strong>Logical Error</strong></td>
+        <td>Program runs but produces wrong output</td>
+        <td>At run time (wrong results)</td>
+        <td>Using + instead of *</td>
+    </tr>
+    <tr>
+        <td><strong>Run-time Error</strong></td>
+        <td>Occurs during program execution</td>
+        <td>At run time (program crashes)</td>
+        <td>Dividing by zero, memory leak</td>
+    </tr>
+</table>
+
+<h3>3.4 Documentation</h3>
+<p>Documentation is any written text, illustrations, or video that describes a software or program to its users. It is a critical process in the overall software development process, especially in modular programming where different modules are developed by different teams.</p>
+
+<h4>Guidelines for Documentation</h4>
+<ul>
+    <li>Documentation should be from the point of view of the reader.</li>
+    <li>It should be unambiguous and without repetition.</li>
+    <li>Industry standards should be used.</li>
+    <li>Documents should always be updated.</li>
+</ul>
+
+<h4>Types of Software Documents</h4>
+<ul>
+    <li><strong>Operational Manual:</strong> Lists and describes all operations and their inter-dependencies.</li>
+    <li><strong>Design Document:</strong> Gives overview of software and describes design elements in detail (DFD, ER diagrams).</li>
+    <li><strong>Requirements Document:</strong> Lists all requirements and analysis of viability.</li>
+    <li><strong>Technical Documentation:</strong> Documents algorithms, flowcharts, program codes, and functional modules.</li>
+    <li><strong>Testing Document:</strong> Records test plan, test cases, validation plan, and test results.</li>
+    <li><strong>List of Known Bugs:</strong> Lists bugs that cannot be removed immediately.</li>
+</ul>
+
+<h4>Internal vs External Documentation</h4>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Internal Documentation</th>
+        <th>External Documentation</th>
+    </tr>
+    <tr>
+        <td>Where Written</td>
+        <td>Inside the program as comments</td>
+        <td>Separate from the program code</td>
+    </tr>
+    <tr>
+        <td>Purpose</td>
+        <td>Helps programmers understand the code</td>
+        <td>Helps users understand how to use the software</td>
+    </tr>
+    <tr>
+        <td>Example</td>
+        <td>/* This function calculates area */</td>
+        <td>User manual, help files</td>
+    </tr>
+</table>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Differences between Top-Down and Bottom-Up approaches.</li>
+        <li>Definition of debugging and types of debugging methods.</li>
+        <li>Three types of errors: Syntax, Logical, and Run-time errors with examples.</li>
+        <li>Definition of documentation, its types (Internal vs External), and types of software documents.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 4 ==================== -->
+<h2 id="unit4">Unit 4: Introduction to C Language</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit introduces the C programming language, its history, features, basic constructs like character set, tokens, constants, variables, keywords, operators, expressions, data types, and the basic structure of a C program.</p>
+</div>
+
+<h3>4.1 Generations of Computer Languages</h3>
+<table>
+    <tr>
+        <th>Generation</th>
+        <th>Language Type</th>
+        <th>Features</th>
+    </tr>
+    <tr>
+        <td>First (1GL)</td>
+        <td>Machine Language</td>
+        <td>Binary code (0s and 1s), no translator needed, used punched cards</td>
+    </tr>
+    <tr>
+        <td>Second (2GL)</td>
+        <td>Assembly Language</td>
+        <td>Uses mnemonics (ADD, SUB), needs Assembler to convert to machine code</td>
+    </tr>
+    <tr>
+        <td>Third (3GL)</td>
+        <td>High Level Language</td>
+        <td>Uses simple English words (PRINT, STOP), needs Compiler/Interpreter</td>
+    </tr>
+    <tr>
+        <td>Fourth (4GL)</td>
+        <td>4GL (Visual/Query)</td>
+        <td>Visual environment, drag-and-drop, reduced programming effort (SQL, VB)</td>
+    </tr>
+    <tr>
+        <td>Fifth (5GL)</td>
+        <td>Natural Language/AI</td>
+        <td>Voice recognition, natural interaction, Prolog, Mercury</td>
+    </tr>
+</table>
+
+<h3>4.2 History of C Language</h3>
+<ul>
+    <li>C is a general-purpose, structured programming language developed in <strong>1972</strong> by <strong>Dennis Ritchie</strong> at <strong>Bell Labs, USA</strong> (AT&amp;T).</li>
+    <li>It is an offspring of two earlier languages: <strong>BCPL</strong> (Basic Combined Programming Language) and <strong>B Language</strong>.</li>
+    <li>Until 1978, C was confined to Bell Labs. Dennis Ritchie and Brian Kernighan published "The C Programming Language" (K&amp;R C).</li>
+    <li>C is classified as a <strong>Middle-Level Language</strong> because it combines features of both high-level and low-level languages.</li>
+</ul>
+
+<h3>4.3 Features of C Language</h3>
+<ul>
+    <li>Simple and easy to learn.</li>
+    <li>Structured programming language (divides problem into functions).</li>
+    <li>Rich set of built-in operators and data types.</li>
+    <li>Supports pointers for direct memory access.</li>
+    <li>Portable - programs can run on different machines with little modification.</li>
+    <li>Efficient and fast execution.</li>
+    <li>Supports dynamic memory allocation.</li>
+    <li>Has 32 keywords.</li>
+    <li>Case-sensitive language.</li>
+    <li>Used to write operating systems (like Windows), applications, and database systems (like Oracle).</li>
+</ul>
+
+<h3>4.4 C Character Set</h3>
+<p>The collection of characters used in C programming includes:</p>
+<ul>
+    <li><strong>Alphabets:</strong> A-Z, a-z</li>
+    <li><strong>Digits:</strong> 0-9</li>
+    <li><strong>White Spaces:</strong> Blank space, horizontal tab (\t), carriage return (\r), new line (\n), form feed (\f)</li>
+    <li><strong>Special Characters:</strong> , . ; : ? ' " ! | / \ ~ _ $ % &amp; ^ * - + &lt; &gt; ( ) [ ] { } #</li>
+</ul>
+
+<h3>4.5 C Tokens</h3>
+<p>The smallest individual units in a C program are called tokens. There are six types of tokens:</p>
+<ol>
+    <li><strong>Keywords:</strong> Reserved words with predefined meaning (e.g., int, float, switch, case). C has 32 keywords.</li>
+    <li><strong>Identifiers:</strong> Names given to variables, functions, and arrays (e.g., cost, amount).</li>
+    <li><strong>Constants:</strong> Fixed values (e.g., 25, 4.5).</li>
+    <li><strong>Strings:</strong> Sequence of characters in double quotes (e.g., "YCMOU").</li>
+    <li><strong>Operators:</strong> Symbols that perform operations (e.g., +, -, *, /).</li>
+    <li><strong>Special Symbols:</strong> [], {}, # etc.</li>
+</ol>
+
+<h3>4.6 Keywords in C (32 Keywords)</h3>
+<div class="keyword-box">
+    <p>auto, break, case, char, const, continue, default, do, double, else, enum, extern, float, for, goto, if, int, long, register, return, short, signed, sizeof, static, struct, switch, typedef, union, unsigned, void, volatile, while</p>
+</div>
+
+<h3>4.7 Identifiers / Variables</h3>
+<p>Each program element is given a name called an identifier. A variable is a data name used to store a data value.</p>
+<h4>Rules for Naming Identifiers</h4>
+<ul>
+    <li>First character must be an alphabet or underscore (_).</li>
+    <li>Following characters can be letters, digits, or underscores.</li>
+    <li>No special characters except underscore are allowed.</li>
+    <li>Maximum length is up to 31 characters.</li>
+    <li>Blank spaces are not allowed.</li>
+    <li>C reserved words cannot be used as identifiers.</li>
+</ul>
+<p>Valid: <span class="inline-code">fno</span>, <span class="inline-code">_sno</span>, <span class="inline-code">get_num</span><br/>Invalid: <span class="inline-code">Gross Pay</span>, <span class="inline-code">1no</span></p>
+
+<h3>4.8 Constants</h3>
+<p>Constants are fixed values that do not change during program execution.</p>
+
+<h4>Types of Constants</h4>
+<ul>
+    <li><strong>Numeric Constants:</strong>
+        <ul>
+            <li><em>Integer Constants:</em> Numbers without decimal point (Decimal: 234, Octal: 056, Hexadecimal: 0X2).</li>
+            <li><em>Real Constants:</em> Numbers with decimal point (Fractional: 0.0083, Exponential: 7.5E9).</li>
+        </ul>
+    </li>
+    <li><strong>Character Constants:</strong>
+        <ul>
+            <li><em>Single Character:</em> A single character in single quotes (e.g., '9', '%', 'A').</li>
+            <li><em>String Constant:</em> Set of characters in double quotes (e.g., "YCMOU", "4567").</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>Escape Sequences</h4>
+<table>
+    <tr><th>Constant</th><th>Meaning</th></tr>
+    <tr><td>\a</td><td>Audible alert</td></tr>
+    <tr><td>\b</td><td>Backspace</td></tr>
+    <tr><td>\f</td><td>Form feed</td></tr>
+    <tr><td>\n</td><td>New line</td></tr>
+    <tr><td>\r</td><td>Carriage return</td></tr>
+    <tr><td>\t</td><td>Horizontal tab</td></tr>
+    <tr><td>\v</td><td>Vertical tab</td></tr>
+    <tr><td>\\</td><td>Backslash</td></tr>
+    <tr><td>\'</td><td>Single quote</td></tr>
+    <tr><td>\"</td><td>Double quote</td></tr>
+    <tr><td>\0</td><td>Null character</td></tr>
+</table>
+
+<h3>4.9 Operators in C</h3>
+
+<h4>1. Arithmetic Operators</h4>
+<table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>+</td><td>Addition</td><td>x = 2+3 = 5</td></tr>
+    <tr><td>-</td><td>Subtraction</td><td>x = 3-2 = 1</td></tr>
+    <tr><td>*</td><td>Multiplication</td><td>x = 2*3 = 6</td></tr>
+    <tr><td>/</td><td>Division</td><td>x = 6/3 = 2</td></tr>
+    <tr><td>%</td><td>Modulo (remainder)</td><td>x = 7%2 = 1</td></tr>
+    <tr><td>++</td><td>Increment</td><td>++x or x++</td></tr>
+    <tr><td>--</td><td>Decrement</td><td>--x or x--</td></tr>
+</table>
+
+<h4>2. Relational Operators</h4>
+<table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>&gt;</td><td>Greater than</td><td>6 &gt; 5</td></tr>
+    <tr><td>&gt;=</td><td>Greater than or equal to</td><td>per &gt;= 75</td></tr>
+    <tr><td>&lt;</td><td>Less than</td><td>age &lt; 18</td></tr>
+    <tr><td>&lt;=</td><td>Less than or equal to</td><td>age &lt;= 18</td></tr>
+    <tr><td>==</td><td>Equal to</td><td>per == 75</td></tr>
+    <tr><td>!=</td><td>Not equal to</td><td>qty != 5</td></tr>
+</table>
+
+<h4>3. Logical Operators</h4>
+<table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+    <tr><td>&amp;&amp;</td><td>AND</td><td>(6&gt;2) &amp;&amp; (3&gt;12)</td><td>False</td></tr>
+    <tr><td>||</td><td>OR</td><td>(4&gt;1) || (11&gt;12)</td><td>True</td></tr>
+    <tr><td>!</td><td>NOT</td><td>!(6&gt;1)</td><td>False</td></tr>
+</table>
+
+<h4>4. Assignment Operators</h4>
+<table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>=</td><td>Simple assignment</td><td>x = 5</td></tr>
+    <tr><td>+=</td><td>Add and assign</td><td>x += 5 means x = x+5</td></tr>
+    <tr><td>-=</td><td>Subtract and assign</td><td>x -= 5 means x = x-5</td></tr>
+    <tr><td>*=</td><td>Multiply and assign</td><td>x *= 5 means x = x*5</td></tr>
+    <tr><td>/=</td><td>Divide and assign</td><td>x /= 5 means x = x/5</td></tr>
+    <tr><td>%=</td><td>Modulo and assign</td><td>x %= 5 means x = x%5</td></tr>
+</table>
+
+<h4>5. Conditional / Ternary Operator (?:)</h4>
+<p>It requires three operands and can be used instead of an if-else statement.</p>
+<p><strong>Syntax:</strong> <span class="inline-code">expression1 ? value_if_true : value_if_false</span></p>
+<p><strong>Example:</strong> <span class="inline-code">max = (f &gt; s) ? f : s;</span></p>
+
+<h4>6. Bitwise Operators</h4>
+<table>
+    <tr><th>Operator</th><th>Meaning</th></tr>
+    <tr><td>&amp;</td><td>Bitwise AND</td></tr>
+    <tr><td>|</td><td>Bitwise OR</td></tr>
+    <tr><td>^</td><td>Bitwise Exclusive OR (XOR)</td></tr>
+    <tr><td>&lt;&lt;</td><td>Left shift</td></tr>
+    <tr><td>&gt;&gt;</td><td>Right shift</td></tr>
+    <tr><td>~</td><td>Bitwise complement (NOT)</td></tr>
+</table>
+
+<h4>7. Special Operators</h4>
+<ul>
+    <li><strong>Comma Operator (,):</strong> Used to string several expressions; evaluates left to right.</li>
+    <li><strong>sizeof:</strong> Returns the size in bytes of a variable or data type.</li>
+    <li><strong>&amp; and *:</strong> Pointer operators (address-of and dereference).</li>
+    <li><strong>. and -&gt;:</strong> Member selection operators for structures.</li>
+</ul>
+
+<h3>4.10 Data Types in C</h3>
+<table>
+    <tr><th>Data Type</th><th>Size (Bytes)</th><th>Range</th><th>Format Specifier</th></tr>
+    <tr><td>char</td><td>1</td><td>-128 to 127</td><td>%c</td></tr>
+    <tr><td>unsigned char</td><td>1</td><td>0 to 255</td><td>%c</td></tr>
+    <tr><td>int / short int</td><td>2</td><td>-32768 to 32767</td><td>%d</td></tr>
+    <tr><td>unsigned int</td><td>2</td><td>0 to 65535</td><td>%u</td></tr>
+    <tr><td>long int</td><td>4</td><td>-2147483648 to 2147483647</td><td>%ld</td></tr>
+    <tr><td>float</td><td>4</td><td>3.4E-38 to 3.4E+38</td><td>%f</td></tr>
+    <tr><td>double</td><td>8</td><td>1.7E-308 to 1.7E+308</td><td>%lf</td></tr>
+    <tr><td>long double</td><td>10</td><td>3.4E-4932 to 1.1E+4932</td><td>%Lf</td></tr>
+    <tr><td>void</td><td>0</td><td>No value</td><td>-</td></tr>
+</table>
+
+<h4>Types of Data Types</h4>
+<ul>
+    <li><strong>Primary/Fundamental:</strong> char, int, float, double, void</li>
+    <li><strong>Derived:</strong> Array, pointer, structure, union</li>
+    <li><strong>User-Defined:</strong> typedef and enum</li>
+</ul>
+
+<h4>Data Type Conversion</h4>
+<ul>
+    <li><strong>Implicit Conversion:</strong> Done automatically by the compiler, converting from lower to higher data type.</li>
+    <li><strong>Explicit Conversion (Type Casting):</strong> Done by the programmer using cast operator. Example: <span class="inline-code">avg = (float)sum/n;</span></li>
+</ul>
+
+<h3>4.11 Basic Structure of a C Program</h3>
+<pre><code>1. Documentation Section  (Comments: /* */ or //)
+2. Link Section          (#include &lt;stdio.h&gt;)
+3. Definition Section    (#define PI 3.14)
+4. Global Declarations   (Variables declared outside all functions)
+5. main() function       {
+                           Local declarations;
+                           Executable statements;
+                         }
+6. Subprogram Section    (User-defined functions)</code></pre>
+
+<h3>4.12 Simple C Program Example</h3>
+<pre><code>/* Program to find area of a rectangle */
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+main()
+{
+    int l, b, area;
+    l = 4;
+    b = 6;
+    area = l * b;
+    printf("Area is = %d\n", area);
+}</code></pre>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>History of C language (Dennis Ritchie, 1972, Bell Labs).</li>
+        <li>C is a middle-level language with 32 keywords.</li>
+        <li>Rules for naming identifiers/variables.</li>
+        <li>All operator types with examples (Arithmetic, Relational, Logical, Assignment, Ternary, Bitwise, Special).</li>
+        <li>Data types, their sizes, ranges, and format specifiers.</li>
+        <li>Basic structure of a C program with all sections.</li>
+        <li>Operator precedence and associativity.</li>
+        <li>Type conversion (implicit vs explicit).</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 5 ==================== -->
+<h2 id="unit5">Unit 5: Managing Input and Output Operations</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers reading and writing characters, formatted input using scanf(), formatted output using printf(), and various unformatted I/O functions like getchar(), getch(), getche(), puts(), and gets().</p>
+</div>
+
+<h3>5.1 Formatted and Unformatted I/O Functions</h3>
+<p>I/O functions in C are classified into two categories:</p>
+<ul>
+    <li><strong>Console I/O Functions:</strong> Receive input from keyboard and write output to monitor.</li>
+    <li><strong>File I/O Functions:</strong> Perform I/O operations on files stored on disk.</li>
+</ul>
+<p>Console I/O functions are further divided into:</p>
+<ul>
+    <li><strong>Formatted I/O:</strong> Allows formatting of input/output (scanf, printf).</li>
+    <li><strong>Unformatted I/O:</strong> No formatting control (getchar, putchar, gets, puts).</li>
+</ul>
+
+<h3>5.2 Unformatted I/O Functions</h3>
+
+<h4>Reading a Character</h4>
+<table>
+    <tr><th>Function</th><th>Header</th><th>Description</th></tr>
+    <tr><td>getchar()</td><td>stdio.h</td><td>Reads a single character; user must press Enter after typing.</td></tr>
+    <tr><td>getch()</td><td>conio.h</td><td>Reads a single character immediately without waiting for Enter; does NOT display the character.</td></tr>
+    <tr><td>getche()</td><td>conio.h</td><td>Reads a single character immediately without waiting for Enter; DOES display (echo) the character.</td></tr>
+</table>
+
+<h4>Writing a Character</h4>
+<ul>
+    <li><strong>putchar():</strong> Prints a single character on the screen. Example: <span class="inline-code">putchar(c);</span></li>
+</ul>
+
+<h4>Reading and Writing Strings</h4>
+<ul>
+    <li><strong>gets():</strong> Reads a string of characters (including spaces) until Enter is pressed. Example: <span class="inline-code">gets(name);</span></li>
+    <li><strong>puts():</strong> Prints a string on the screen and adds a newline at the end. Example: <span class="inline-code">puts(name);</span></li>
+</ul>
+
+<h3>5.3 Formatted Input - scanf()</h3>
+<p><strong>Syntax:</strong> <span class="inline-code">scanf("format specifiers", &amp;var1, &amp;var2, ...);</span></p>
+
+<h4>Format Specifiers for scanf()</h4>
+<table>
+    <tr><th>Code</th><th>Meaning</th></tr>
+    <tr><td>%c</td><td>Reads a single character</td></tr>
+    <tr><td>%d</td><td>Reads a decimal integer</td></tr>
+    <tr><td>%f</td><td>Reads a floating point value</td></tr>
+    <tr><td>%e</td><td>Reads a floating point value (exponential)</td></tr>
+    <tr><td>%s</td><td>Reads a string</td></tr>
+    <tr><td>%o</td><td>Reads an octal integer</td></tr>
+    <tr><td>%x</td><td>Reads a hexadecimal integer</td></tr>
+    <tr><td>%u</td><td>Reads an unsigned decimal integer</td></tr>
+    <tr><td>%h</td><td>Reads a short integer</td></tr>
+    <tr><td>%lf</td><td>Reads a double value</td></tr>
+    <tr><td>%[..]</td><td>Reads a string of words (including spaces)</td></tr>
+</table>
+
+<h3>5.4 Formatted Output - printf()</h3>
+<p><strong>Syntax:</strong> <span class="inline-code">printf("format specifiers", var1, var2, ...);</span></p>
+<p>The format specification has the form: <span class="inline-code">%n.d data-type</span> where n = total field width and d = precision (decimal places).</p>
+
+<h4>Format Specifiers for printf()</h4>
+<table>
+    <tr><th>Code</th><th>Meaning</th></tr>
+    <tr><td>%c</td><td>Prints a single character</td></tr>
+    <tr><td>%d</td><td>Prints a decimal integer</td></tr>
+    <tr><td>%f</td><td>Prints a floating point value</td></tr>
+    <tr><td>%e</td><td>Prints in exponential form</td></tr>
+    <tr><td>%s</td><td>Prints a string</td></tr>
+    <tr><td>%u</td><td>Prints an unsigned decimal integer</td></tr>
+    <tr><td>%o</td><td>Prints an octal integer</td></tr>
+    <tr><td>%x</td><td>Prints a hexadecimal integer</td></tr>
+    <tr><td>%ld</td><td>Prints a long integer</td></tr>
+    <tr><td>%lf</td><td>Prints a double value</td></tr>
+</table>
+
+<h4>Output Format Flags</h4>
+<table>
+    <tr><th>Flag</th><th>Meaning</th></tr>
+    <tr><td>-</td><td>Left-justifies the output</td></tr>
+    <tr><td>+</td><td>Displays + or - sign before the number</td></tr>
+    <tr><td>0</td><td>Pads with leading zeros</td></tr>
+    <tr><td>#</td><td>Prefixes 0 for octal, 0x for hexadecimal; forces decimal point for floats</td></tr>
+</table>
+
+<h3>5.5 Difference between getch(), getche(), and getchar()</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>getchar()</th>
+        <th>getch()</th>
+        <th>getche()</th>
+    </tr>
+    <tr>
+        <td>Header File</td>
+        <td>stdio.h</td>
+        <td>conio.h</td>
+        <td>conio.h</td>
+    </tr>
+    <tr>
+        <td>Waits for Enter</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Displays Character</td>
+        <td>Yes (echo)</td>
+        <td>No (no echo)</td>
+        <td>Yes (echo)</td>
+    </tr>
+    <tr>
+        <td>Buffer</td>
+        <td>Buffered</td>
+        <td>Unbuffered</td>
+        <td>Unbuffered</td>
+    </tr>
+</table>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Difference between formatted and unformatted I/O functions.</li>
+        <li>scanf() and printf() with all format specifiers and flags.</li>
+        <li>Difference between getchar(), getch(), and getche().</li>
+        <li>gets() vs scanf() for reading strings (gets allows spaces).</li>
+        <li>Format specifications: %n.d for controlling field width and precision.</li>
+        <li>Escape sequences and their usage.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 6 ==================== -->
+<h2 id="unit6">Unit 6: Decision Making and Looping</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers control structures in C including decision-making statements (if, if-else, nested if, switch-case, conditional operator) and looping structures (for, while, do-while), along with break, continue, and goto statements.</p>
+</div>
+
+<h3>6.1 Control Structures</h3>
+<p>Control structures change the flow of program execution:</p>
+<ul>
+    <li><strong>Conditional Branching:</strong> Transfer of control based on a condition (if, switch).</li>
+    <li><strong>Unconditional Branching:</strong> Transfer of control without any condition (goto).</li>
+    <li><strong>Looping:</strong> Repeating a group of statements multiple times.</li>
+</ul>
+
+<h3>6.2 Decision Making Statements</h3>
+
+<h4>Simple if Statement</h4>
+<p>Executes a block of code only if the condition is true.</p>
+<pre><code>if (condition)
+{
+    // Statement block (executed if condition is true)
+}
+// Statement-x (always executed)</code></pre>
+
+<h4>if-else Statement</h4>
+<p>Provides both true and false paths.</p>
+<pre><code>if (condition)
+{
+    // True block
+}
+else
+{
+    // False block
+}</code></pre>
+
+<h4>Nested if-else Statement</h4>
+<p>An if statement inside another if statement. Used when multiple conditions need to be checked in a hierarchy.</p>
+<pre><code>if (condition1)
+{
+    if (condition2)
+    {
+        // Block A
+    }
+    else
+    {
+        // Block B
+    }
+}
+else
+{
+    // Block C
+}</code></pre>
+
+<h4>else-if Ladder</h4>
+<pre><code>if (condition1)
+    statement1;
+else if (condition2)
+    statement2;
+else if (condition3)
+    statement3;
+else
+    default_statement;</code></pre>
+
+<h4>Conditional / Ternary Operator</h4>
+<p>A shorthand for simple if-else statements.</p>
+<pre><code>// Instead of:
+if (f > s)
+    max = f;
+else
+    max = s;
+
+// Use ternary operator:
+max = (f > s) ? f : s;</code></pre>
+
+<h4>switch-case Statement</h4>
+<p>A structured way to handle multiple choices. The switch expression is compared with each case value.</p>
+<pre><code>switch(expression)
+{
+    case value1:
+        statements;
+        break;
+    case value2:
+        statements;
+        break;
+    default:
+        statements;
+}</code></pre>
+
+<div class="note">
+    <p><strong>Note:</strong> The <strong>break</strong> statement is essential in each case to prevent "fall-through" to the next case. The <strong>default</strong> case handles values that don't match any case.</p>
+</div>
+
+<h3>6.3 Looping Structures</h3>
+
+<h4>for Loop (Counter-Controlled)</h4>
+<p>Used when the number of iterations is known in advance.</p>
+<pre><code>for (initialization; condition; increment/decrement)
+{
+    // Loop body
+}
+
+// Example: Print name 10 times
+for(i = 1; i &lt;= 10; i++)
+    printf("YCMOU");</code></pre>
+
+<h4>while Loop (Entry-Controlled / Top-Tested)</h4>
+<p>Condition is checked first, then the loop body executes. The loop may not execute at all if the condition is false initially.</p>
+<pre><code>while(condition)
+{
+    // Loop body
+    // Update expression
+}
+
+// Example:
+int i = 1;
+while(i &lt;= 10)
+{
+    printf("YCMOU");
+    i++;
+}</code></pre>
+
+<h4>do-while Loop (Exit-Controlled / Bottom-Tested)</h4>
+<p>The loop body executes first, then the condition is checked. The loop executes <strong>at least once</strong>.</p>
+<pre><code>do
+{
+    // Loop body
+} while(condition);</code></pre>
+
+<h3>6.4 Comparison of Loops</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>for loop</th>
+        <th>while loop</th>
+        <th>do-while loop</th>
+    </tr>
+    <tr>
+        <td>Testing Position</td>
+        <td>Entry-controlled</td>
+        <td>Entry-controlled</td>
+        <td>Exit-controlled</td>
+    </tr>
+    <tr>
+        <td>Minimum Execution</td>
+        <td>0 times</td>
+        <td>0 times</td>
+        <td>1 time (at least once)</td>
+    </tr>
+    <tr>
+        <td>Best Used When</td>
+        <td>Number of iterations is known</td>
+        <td>Unknown iterations, condition-based</td>
+        <td>Loop must execute at least once</td>
+    </tr>
+    <tr>
+        <td>Control Type</td>
+        <td>Counter-controlled</td>
+        <td>Sentinel-controlled</td>
+        <td>Sentinel-controlled</td>
+    </tr>
+</table>
+
+<h3>6.5 break and continue Statements</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>break</th>
+        <th>continue</th>
+    </tr>
+    <tr>
+        <td>Purpose</td>
+        <td>Terminates the loop entirely</td>
+        <td>Skips current iteration, moves to next</td>
+    </tr>
+    <tr>
+        <td>Used With</td>
+        <td>Loops and switch-case</td>
+        <td>Only in loops</td>
+    </tr>
+    <tr>
+        <td>Control Flow</td>
+        <td>Transferred outside the loop</td>
+        <td>Remains inside the loop</td>
+    </tr>
+    <tr>
+        <td>Syntax</td>
+        <td>break;</td>
+        <td>continue;</td>
+    </tr>
+</table>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Syntax and flow of if, if-else, nested if, and else-if ladder.</li>
+        <li>switch-case with break and default.</li>
+        <li>Ternary operator as a substitute for simple if-else.</li>
+        <li>Three types of loops: for, while, do-while with their differences.</li>
+        <li>break vs continue with differences.</li>
+        <li>Programs: find greatest of 3 numbers, check prime, factorial, Fibonacci series, palindrome check, print patterns.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 7 ==================== -->
+<h2 id="unit7">Unit 7: Arrays</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the concept of arrays, their types (1D, 2D, and n-dimensional), declaration, initialization, accessing elements, and applications. Arrays allow storing multiple values of the same data type in contiguous memory locations.</p>
+</div>
+
+<h3>7.1 What is an Array?</h3>
+<p>An array is a collection of <strong>similar data type elements</strong> allocated in <strong>contiguous memory blocks</strong> referred by a common name. Arrays make processing faster because elements are stored next to each other in memory.</p>
+
+<h3>7.2 Types of Arrays</h3>
+
+<h4>1. One-Dimensional Array (1D)</h4>
+<p>A list of elements stored in a single row.</p>
+<p><strong>Declaration:</strong> <span class="inline-code">data_type array_name[size];</span></p>
+<p><strong>Example:</strong> <span class="inline-code">int marks[10];</span></p>
+<pre><code>// Creating and printing a 1D array
+int m[5] = {10, 20, 30, 40, 50};
+
+// Accessing elements
+printf("%d", m[0]);  // Output: 10
+printf("%d", m[4]);  // Output: 50</code></pre>
+
+<h4>2. Two-Dimensional Array (2D)</h4>
+<p>Elements arranged in rows and columns (like a matrix).</p>
+<p><strong>Declaration:</strong> <span class="inline-code">data_type array_name[rows][cols];</span></p>
+<p><strong>Example:</strong> <span class="inline-code">int m[2][3];</span></p>
+<pre><code>// Creating and printing a 2D array
+int m[2][3] = {{1,2,3}, {4,5,6}};
+
+// Accessing elements
+printf("%d", m[0][1]);  // Output: 2
+printf("%d", m[1][2]);  // Output: 6</code></pre>
+
+<h4>3. n-Dimensional Array</h4>
+<p>Arrays with more than two dimensions.</p>
+<p><strong>Example:</strong> <span class="inline-code">int m[2][2][3];</span> - A 3D array.</p>
+
+<h3>7.3 Applications of Arrays</h3>
+<ul>
+    <li>Surveys and statistical analysis</li>
+    <li>Matrix operations (addition, subtraction, transpose)</li>
+    <li>Sorting and filtering lists</li>
+    <li>Searching elements within a list</li>
+</ul>
+
+<h3>7.4 Advantages and Limitations of Arrays</h3>
+<table>
+    <tr><th>Advantages</th><th>Limitations</th></tr>
+    <tr><td>Processing is faster due to contiguous memory</td><td>Static - memory may be underutilized</td></tr>
+    <tr><td>Easy to access elements using index</td><td>Size is fixed at declaration time</td></tr>
+    <tr><td>Multiple values stored under one name</td><td>Cannot increase size after declaration</td></tr>
+    <tr><td>Easy to implement algorithms (sorting, searching)</td><td>Can only store same data type elements</td></tr>
+</table>
+
+<h3>7.5 Array Initialization</h3>
+<pre><code>// At declaration time
+int marks[5] = {90, 80, 70, 60, 50};
+
+// Partial initialization (remaining elements = 0)
+int nums[5] = {10, 20};  // {10, 20, 0, 0, 0}
+
+// Without specifying size
+int vals[] = {1, 2, 3, 4, 5};  // Size = 5</code></pre>
+
+<h3>7.6 Common Array Programs</h3>
+<ul>
+    <li>Finding maximum, minimum, and sum of array elements.</li>
+    <li>Printing array in reverse order.</li>
+    <li>Matrix addition and subtraction using 2D arrays.</li>
+    <li>Finding transpose of a matrix.</li>
+</ul>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Definition: Array is a collection of similar data type elements in contiguous memory.</li>
+        <li>Types: 1D, 2D, and n-dimensional arrays with declaration and initialization.</li>
+        <li>Array indexing starts from 0.</li>
+        <li>Advantages and limitations of arrays.</li>
+        <li>Programs: find max/min/sum, print in reverse, matrix operations, transpose.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 8 ==================== -->
+<h2 id="unit8">Unit 8: Strings</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers strings in C, their declaration and initialization, string input/output functions, and standard library string handling functions like strlen(), strcpy(), strcat(), strcmp(), etc.</p>
+</div>
+
+<h3>8.1 What is a String?</h3>
+<p>A string is a collection of characters. It is an <strong>array of characters terminated by a null character ('\0')</strong>. The header file required for string functions is <span class="inline-code">string.h</span>.</p>
+<p><strong>Example:</strong> "Welcome to C" is stored in memory as: W e l c o m e t o C \0</p>
+
+<h3>8.2 Declaring and Initializing Strings</h3>
+<pre><code>// Method 1: Character array
+char str[20] = "Hello";
+
+// Method 2: Character by character
+char str[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+
+// Method 3: Pointer to string
+char *ptr = "Hello";
+
+// Method 4: Using array with size
+char name[80];</code></pre>
+
+<h3>8.3 String Input/Output</h3>
+<ul>
+    <li><strong>scanf() with %s:</strong> Reads a string but stops at whitespace. <span class="inline-code">scanf("%s", name);</span></li>
+    <li><strong>gets():</strong> Reads a string including spaces. <span class="inline-code">gets(name);</span></li>
+    <li><strong>printf() with %s:</strong> Prints a string. <span class="inline-code">printf("%s", name);</span></li>
+    <li><strong>puts():</strong> Prints a string and adds newline. <span class="inline-code">puts(name);</span></li>
+</ul>
+
+<h3>8.4 Standard String Library Functions (string.h)</h3>
+<table>
+    <tr><th>Function</th><th>Syntax</th><th>Description</th></tr>
+    <tr><td>strlen()</td><td>strlen(s)</td><td>Returns the length of the string (excluding '\0')</td></tr>
+    <tr><td>strcpy()</td><td>strcpy(d, s)</td><td>Copies string s to string d</td></tr>
+    <tr><td>strcat()</td><td>strcat(s1, s2)</td><td>Concatenates s2 to the end of s1</td></tr>
+    <tr><td>strcmp()</td><td>strcmp(s1, s2)</td><td>Compares s1 and s2; returns 0 if equal, negative if s1 &lt; s2, positive if s1 &gt; s2</td></tr>
+    <tr><td>strcmpi()</td><td>strcmpi(s1, s2)</td><td>Same as strcmp but case-insensitive</td></tr>
+    <tr><td>strrev()</td><td>strrev(s)</td><td>Reverses the string</td></tr>
+    <tr><td>strlwr()</td><td>strlwr(s)</td><td>Converts string to lowercase</td></tr>
+    <tr><td>strupr()</td><td>strupr(s)</td><td>Converts string to uppercase</td></tr>
+    <tr><td>strncat()</td><td>strncat(s1, s2, n)</td><td>Concatenates first n characters of s2 to s1</td></tr>
+    <tr><td>strncmp()</td><td>strncmp(s1, s2, n)</td><td>Compares first n characters of s1 and s2</td></tr>
+    <tr><td>strchr()</td><td>strchr(s, c)</td><td>Returns pointer to first occurrence of character c in string s</td></tr>
+    <tr><td>strstr()</td><td>strstr(s1, s2)</td><td>Returns pointer to first occurrence of s2 in s1</td></tr>
+    <tr><td>strset()</td><td>strset(s, ch)</td><td>Sets all characters in s to ch</td></tr>
+    <tr><td>strnset()</td><td>strnset(s, ch, n)</td><td>Sets first n characters of s to ch</td></tr>
+    <tr><td>atoi()</td><td>atoi(s)</td><td>Converts string to integer</td></tr>
+    <tr><td>strdup()</td><td>strdup(s)</td><td>Duplicates a string at another location</td></tr>
+    <tr><td>strtok()</td><td>strtok(s1, s2)</td><td>Searches s1 for tokens separated by delimiters in s2</td></tr>
+</table>
+
+<h3>8.5 sprintf() and sscanf()</h3>
+<ul>
+    <li><strong>sprintf():</strong> Same as printf but writes output into a string instead of screen.</li>
+    <li><strong>sscanf():</strong> Same as scanf but reads from a string instead of keyboard.</li>
+</ul>
+
+<h3>8.6 Array of Strings</h3>
+<p>An array of strings is a two-dimensional character array.</p>
+<pre><code>// Declaration
+char cities[4][10] = {"Pune", "Mumbai", "Delhi", "Chennai"};
+
+// Accessing
+printf("%s", cities[0]);  // Output: Pune</code></pre>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>String is a character array terminated by null character ('\0').</li>
+        <li>Declaration and initialization methods for strings.</li>
+        <li>gets() vs scanf() for reading strings (gets allows spaces).</li>
+        <li>Key string functions: strlen, strcpy, strcat, strcmp, strrev, strlwr, strupr with examples.</li>
+        <li>strcmp() returns 0 if strings are equal.</li>
+        <li>Array of strings concept.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 9 ==================== -->
+<h2 id="unit9">Unit 9: Functions</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the need for functions, scope and lifetime of variables, defining and calling functions, call by value vs call by reference, return values, storage classes, categories of functions, recursion, and command line arguments.</p>
+</div>
+
+<h3>9.1 Need for Functions</h3>
+<p>A function is a sub-program or set of instructions written to perform a particular task. Functions make programs:</p>
+<ul>
+    <li><strong>Modular:</strong> Large programs are divided into smaller, manageable parts.</li>
+    <li><strong>Reusable:</strong> Same function can be called multiple times.</li>
+    <li><strong>Easier to debug and test:</strong> Individual functions can be tested separately.</li>
+    <li><strong>Logically clear:</strong> Each function has a specific purpose.</li>
+</ul>
+
+<h3>9.2 Scope and Lifetime of Variables</h3>
+<ul>
+    <li><strong>Local Variables:</strong> Declared inside a function. Accessible only within that function.</li>
+    <li><strong>Global Variables:</strong> Declared outside all functions. Accessible by all functions in the program.</li>
+</ul>
+
+<h3>9.3 Steps for Writing a Function</h3>
+<ol>
+    <li><strong>Declare the Prototype:</strong> Specify the return type, function name, and parameter types.
+        <br/><span class="inline-code">int cube(int);</span></li>
+    <li><strong>Call the Function:</strong> Invoke the function from main or another function.
+        <br/><span class="inline-code">ans = cube(n);</span></li>
+    <li><strong>Define the Function:</strong> Write the actual code.
+        <br/><span class="inline-code">int cube(int p) { return(p*p*p); }</span></li>
+</ol>
+
+<h3>9.4 Call by Value vs Call by Reference</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Call by Value</th>
+        <th>Call by Reference</th>
+    </tr>
+    <tr>
+        <td>What is Passed</td>
+        <td>Value of actual argument is copied to formal argument</td>
+        <td>Address (reference) of actual argument is passed</td>
+    </tr>
+    <tr>
+        <td>Access to Original</td>
+        <td>Cannot access original variable</td>
+        <td>Can access original variable</td>
+    </tr>
+    <tr>
+        <td>Effect of Changes</td>
+        <td>Changes to formal argument do NOT affect actual argument</td>
+        <td>Changes to formal argument ARE reflected in actual argument</td>
+    </tr>
+    <tr>
+        <td>Pointers Required</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>When to Use</td>
+        <td>When you only need the value but don't need to modify it</td>
+        <td>When variable has to be modified by the function</td>
+    </tr>
+</table>
+
+<h4>Call by Value Example</h4>
+<pre><code>void fun(int x)  // x gets a copy of a
+{
+    printf("%d ", x);
+    x++;          // Changes only the copy
+    printf("%d ", x);
+}
+
+void main()
+{
+    int a = 10;
+    fun(a);       // Passes value of a
+    printf("%d ", a);  // a is still 10
+}</code></pre>
+
+<h4>Call by Reference Example</h4>
+<pre><code>void fun(int *x)  // x points to a
+{
+    printf("%d ", *x);
+    (*x)++;         // Changes the original a
+    printf("%d ", *x);
+}
+
+void main()
+{
+    int a = 10;
+    fun(&a);        // Passes address of a
+    printf("%d ", a);  // a is now 11
+}</code></pre>
+
+<h3>9.5 The return Statement</h3>
+<p>The return statement terminates function execution and returns control (and optionally a value) to the calling function.</p>
+<pre><code>// Syntax options:
+return;
+return expression;
+return (expression);</code></pre>
+<p>A function can have multiple return statements, but execution stops at the first one encountered.</p>
+
+<h3>9.6 Categories of Functions</h3>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Arguments</th>
+        <th>Return Value</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>No arguments</td>
+        <td>No return value</td>
+        <td>void add(void);</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>With arguments</td>
+        <td>No return value</td>
+        <td>void fun2(int a);</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>No arguments</td>
+        <td>With return value</td>
+        <td>int getdata(void);</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>With arguments</td>
+        <td>With return value</td>
+        <td>int add(int f, int s);</td>
+    </tr>
+</table>
+
+<h3>9.7 Recursion</h3>
+<p>Recursion is a process where a function calls itself. A termination condition must be specified to stop the recursion.</p>
+
+<h4>Example: Factorial using Recursion</h4>
+<pre><code>int factorial(int n)
+{
+    if(n == 0)
+        return (1);
+    else
+        return (n * factorial(n - 1));
+}</code></pre>
+
+<h4>Advantages of Recursion</h4>
+<ul>
+    <li>Program code is compact and easier to write.</li>
+    <li>Solves complex problems elegantly (e.g., tree traversal, Fibonacci).</li>
+</ul>
+
+<h4>Disadvantages of Recursion</h4>
+<ul>
+    <li>Uses more storage (stack) and takes more computing time than iterative solutions.</li>
+    <li>Risk of stack overflow if termination condition is not correct.</li>
+</ul>
+
+<h3>9.8 Command Line Arguments</h3>
+<p>Arguments passed to a program from the command line when executing it.</p>
+<pre><code>void main(int argc, char *argv[])
+// argc = argument count (number of arguments)
+// argv = argument vector (array of strings)
+
+// Example: d:&gt; add 10 20
+// argc = 3, argv[0] = "add", argv[1] = "10", argv[2] = "20"</code></pre>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Need and advantages of functions (Modularity, Reusability, Abstraction).</li>
+        <li>Call by Value vs Call by Reference (differences with examples).</li>
+        <li>Four categories of functions with examples.</li>
+        <li>Recursion concept with factorial and sum of natural numbers examples.</li>
+        <li>Command line arguments (argc and argv).</li>
+        <li>Local vs Global variables, scope and lifetime.</li>
+        <li>Storage classes overview.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 10 ==================== -->
+<h2 id="unit10">Unit 10: Pointers</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the concept of pointers, declaring and initializing pointer variables, accessing addresses, pointer arithmetic, arrays and pointers, pointer to pointer, and pointers to functions.</p>
+</div>
+
+<h3>10.1 Understanding Pointers</h3>
+<p>A pointer is a variable that stores the <strong>memory address</strong> of another variable. Since memory locations can be accessed using addresses, pointers allow direct manipulation of data in memory, making processing faster.</p>
+
+<h3>10.2 Declaring and Initializing Pointers</h3>
+<pre><code>// Declaration
+data_type *pointer_name;
+int *p;       // p is a pointer to integer
+
+// Initialization
+int a = 10;
+p = &amp;a;       // p now stores address of a
+
+// Accessing value using pointer (dereferencing)
+printf("%d", *p);  // Output: 10 (value at address stored in p)
+
+// Changing value using pointer
+*p = 20;           // a now becomes 20</code></pre>
+
+<h4>Key Operators</h4>
+<ul>
+    <li><strong>&amp; (Address Operator):</strong> Returns the address of a variable. Example: <span class="inline-code">&amp;a</span> gives address of a.</li>
+    <li><strong>* (Indirection/Dereference Operator):</strong> Accesses the value at the address stored in a pointer. Example: <span class="inline-code">*p</span> gives value at address stored in p.</li>
+</ul>
+
+<h4>Printing Address of a Variable</h4>
+<pre><code>int i = 3;
+printf("Address of i = %u", &amp;i);   // %u for unsigned (address)
+printf("Value of i = %d", i);
+printf("Value of i = %d", *(&amp;i));  // Same as i</code></pre>
+
+<h3>10.3 Pointer Arithmetic</h3>
+<h4>Valid Operations</h4>
+<ul>
+    <li>Addition of integer to pointer: <span class="inline-code">p1 + 3</span></li>
+    <li>Subtraction of integer from pointer: <span class="inline-code">p1 - 2</span></li>
+    <li>Subtraction of two pointers: <span class="inline-code">p1 - p2</span></li>
+    <li>Increment/Decrement: <span class="inline-code">p1++</span>, <span class="inline-code">--p2</span></li>
+    <li>Comparison (if same data type): <span class="inline-code">p1 == p2</span>, <span class="inline-code">p1 &lt; p2</span></li>
+</ul>
+<h4>Invalid Operations</h4>
+<ul>
+    <li>Addition of two pointers: <span class="inline-code">p1 + p2</span> (Invalid)</li>
+    <li>Multiplication of pointers: <span class="inline-code">p1 * p2</span> (Invalid)</li>
+    <li>Division of pointers: <span class="inline-code">p1 / p2</span> (Invalid)</li>
+</ul>
+
+<div class="note">
+    <p><strong>Note:</strong> When a pointer is incremented, it moves by the size of its data type. For example, if <span class="inline-code">int *p</span> has value 100 and int is 2 bytes, then <span class="inline-code">p++</span> makes p = 102 (not 101).</p>
+</div>
+
+<h3>10.4 Arrays and Pointers</h3>
+<p>The name of an array is a constant pointer to its first element.</p>
+<pre><code>int a[5] = {10, 20, 30, 40, 50};
+int *p;
+p = a;      // p points to a[0]
+// OR
+p = &amp;a[0];
+
+// Accessing elements using pointer
+printf("%d", *p);      // 10
+printf("%d", *(p+1));  // 20
+printf("%d", *(p+2));  // 30</code></pre>
+
+<h4>Array of Pointers</h4>
+<pre><code>int *p[5];  // p is array of 5 integer pointers</code></pre>
+
+<h3>10.5 Pointer to Pointer</h3>
+<p>A pointer that stores the address of another pointer variable.</p>
+<pre><code>int data = 20;
+int *p1 = &amp;data;
+int **p2 = &amp;p1;     // p2 is pointer to pointer
+
+printf("%d", **p2);  // Output: 20</code></pre>
+
+<h3>10.6 Pointers to Functions</h3>
+<p>Pointers can be used with functions in two ways:</p>
+<ol>
+    <li><strong>Functions taking pointers as parameters:</strong>
+        <br/><span class="inline-code">void swap(int *p1, int *p2);</span></li>
+    <li><strong>Functions returning a pointer:</strong>
+        <br/><span class="inline-code">int *largest(int *, int *);</span></li>
+</ol>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Definition: Pointer is a variable that stores address of another variable.</li>
+        <li>&amp; (address) and * (dereference) operators.</li>
+        <li>Pointer arithmetic - valid and invalid operations.</li>
+        <li>Relationship between arrays and pointers (array name = pointer to first element).</li>
+        <li>Pointer to pointer concept.</li>
+        <li>Pointers as function parameters and return types.</li>
+        <li>Programs: print address of variable, access array using pointers, swap using pointers.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 11 ==================== -->
+<h2 id="unit11">Unit 11: Structures and Unions</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers structures (defining, declaring, accessing members, initialization, array of structures, nested structures), unions, and the differences between arrays, structures, and unions.</p>
+</div>
+
+<h3>11.1 Introduction to Structures</h3>
+<p>A structure is a collection of <strong>dissimilar elements</strong> (different data types) grouped together under a single name. Unlike arrays (which store same type), structures can hold elements of different data types.</p>
+
+<h3>11.2 Defining and Declaring Structures</h3>
+<pre><code>// Defining a structure
+struct stud
+{
+    int roll;
+    char name[20];
+    float ht;
+};
+
+// Declaring structure variable
+struct stud s;
+
+// Accessing members using dot (.) operator
+s.roll = 1;
+strcpy(s.name, "Raj");
+s.ht = 5.5;
+
+// Initialization at declaration
+struct stud s = {1, "Raj", 5.5};</code></pre>
+
+<h3>11.3 Using typedef with Structures</h3>
+<pre><code>typedef struct stud
+{
+    int rollno;
+    char name[20];
+    float percentage;
+} student;
+
+// Now 'student' can be used directly (no 'struct' keyword needed)
+student s1, s2;</code></pre>
+
+<h3>11.4 Array of Structures</h3>
+<p>When we need multiple records of the same structure type, we use an array of structures.</p>
+<pre><code>struct stud
+{
+    int rno;
+    char name[20];
+    int marks;
+} s[10];  // s is an array of 10 structures
+
+// Accessing elements
+s[0].rno = 1;
+strcpy(s[0].name, "Raj");
+s[0].marks = 85;</code></pre>
+
+<h3>11.5 Nested Structures</h3>
+<p>A structure declared inside another structure is called a nested structure.</p>
+<pre><code>struct student
+{
+    char name[20];
+    int rollno;
+    struct date
+    {
+        int day;
+        int month;
+        int year;
+    } birthdate;
+    float percentage;
+} s;
+
+// Accessing nested members
+s.birthdate.day = 15;
+s.birthdate.month = 8;
+s.birthdate.year = 2000;</code></pre>
+
+<h3>11.6 Difference between Array and Structure</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Array</th>
+        <th>Structure</th>
+    </tr>
+    <tr>
+        <td>Data Collection</td>
+        <td>Collection of homogeneous (same type) data</td>
+        <td>Collection of heterogeneous (different types) data</td>
+    </tr>
+    <tr>
+        <td>Element Reference</td>
+        <td>By subscript/index</td>
+        <td>By unique member name</td>
+    </tr>
+    <tr>
+        <td>Access Method</td>
+        <td>By position/subscript</td>
+        <td>By dot (.) operator with object</td>
+    </tr>
+    <tr>
+        <td>Data Type</td>
+        <td>Derived data type</td>
+        <td>User-defined data type</td>
+    </tr>
+</table>
+
+<h3>11.7 Unions</h3>
+<p>A union is similar to a structure but <strong>only one of its members can be used at a time</strong>. All members share the same memory area, so only one member is active at any given time.</p>
+
+<pre><code>// Declaring a union
+union u
+{
+    char s[5];
+    int num;
+} u1;</code></pre>
+<p>The variable u1 will be allocated memory equal to the size of the <strong>largest member</strong> (in this case, 5 bytes for char s[5] or the size of int, whichever is larger).</p>
+
+<h3>11.8 Difference between Structure and Union</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Structure</th>
+        <th>Union</th>
+    </tr>
+    <tr>
+        <td>Definition</td>
+        <td>Groups different data types into a single entity</td>
+        <td>Allows storing different data types at the same memory location</td>
+    </tr>
+    <tr>
+        <td>Keyword</td>
+        <td>struct</td>
+        <td>union</td>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>Sum of sizes of all members (with padding)</td>
+        <td>Size of the largest member (with padding)</td>
+    </tr>
+    <tr>
+        <td>Memory Allocation</td>
+        <td>Each member gets its own storage location</td>
+        <td>Memory is shared by all members</td>
+    </tr>
+    <tr>
+        <td>Data Overlap</td>
+        <td>No overlap - members have separate storage</td>
+        <td>Full overlap - members share same memory</td>
+    </tr>
+    <tr>
+        <td>Members at a Time</td>
+        <td>All members can be used simultaneously</td>
+        <td>Only one member can be used at a time</td>
+    </tr>
+    <tr>
+        <td>Purpose</td>
+        <td>Organize related data of different types</td>
+        <td>Save memory</td>
+    </tr>
+</table>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Definition of structure and how to declare, initialize, and access members using dot operator.</li>
+        <li>Array of structures and nested structures.</li>
+        <li>typedef with structures.</li>
+        <li>Difference between Array and Structure.</li>
+        <li>Definition of union and its key property (only one member active at a time).</li>
+        <li>Difference between Structure and Union (most frequently asked!).li>
+        <li>Memory allocation: Structure = sum of all members, Union = size of largest member.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 12 ==================== -->
+<h2 id="unit12">Unit 12: File Handling</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers introduction to files and streams, types of files (text and binary), file operations (open, read, write, close), standard library file functions, and random access to files using fseek, ftell, and rewind.</p>
+</div>
+
+<h3>12.1 Introduction to Files and Streams</h3>
+<p>Console I/O functions like printf and scanf lose data once the program ends. To store data permanently, we use files. A <strong>stream</strong> is a logical connection between a program and a file.</p>
+
+<h4>Standard Streams</h4>
+<table>
+    <tr><th>Stream</th><th>Meaning</th><th>Device</th></tr>
+    <tr><td>stdin</td><td>Standard input</td><td>Keyboard</td></tr>
+    <tr><td>stdout</td><td>Standard output</td><td>Screen</td></tr>
+    <tr><td>stderr</td><td>Standard error output</td><td>Screen</td></tr>
+    <tr><td>stdprn</td><td>Standard printer</td><td>Printer (LPT1)</td></tr>
+    <tr><td>stdaux</td><td>Standard auxiliary</td><td>Serial port (COM1)</td></tr>
+</table>
+
+<h3>12.2 Types of Files</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Text Files</th>
+        <th>Binary Files</th>
+    </tr>
+    <tr>
+        <td>Data Format</td>
+        <td>Stored as plain text (readable characters)</td>
+        <td>Stored in binary form (0s and 1s)</td>
+    </tr>
+    <tr>
+        <td>Readability</td>
+        <td>Easily readable by humans</td>
+        <td>Not easily readable by humans</td>
+    </tr>
+    <tr>
+        <td>Security</td>
+        <td>Less security</td>
+        <td>Better security</td>
+    </tr>
+    <tr>
+        <td>Storage Space</td>
+        <td>Takes bigger storage space</td>
+        <td>More compact, holds more data</td>
+    </tr>
+    <tr>
+        <td>Extension</td>
+        <td>.txt</td>
+        <td>.bin</td>
+    </tr>
+</table>
+
+<h3>12.3 File Operations</h3>
+
+<h4>The File Pointer</h4>
+<p>A file pointer is a pointer variable of type FILE (defined in stdio.h) used to identify and operate on a disk file.</p>
+<pre><code>FILE *fp;  // Declaring a file pointer</code></pre>
+
+<h4>Opening a File - fopen()</h4>
+<pre><code>fp = fopen("filename", "mode");</code></pre>
+
+<table>
+    <tr><th>Mode</th><th>Meaning</th></tr>
+    <tr><td>"r"</td><td>Open for reading. File must exist.</td></tr>
+    <tr><td>"w"</td><td>Open for writing. Creates new file or overwrites existing.</td></tr>
+    <tr><td>"a"</td><td>Open for appending. Creates new file if it doesn't exist.</td></tr>
+    <tr><td>"r+"</td><td>Open for reading and writing. File must exist.</td></tr>
+    <tr><td>"w+"</td><td>Open for reading and writing. Overwrites if exists.</td></tr>
+    <tr><td>"a+"</td><td>Open for reading and appending. Creates if doesn't exist.</td></tr>
+</table>
+<p>Add "b" after the mode for binary files: "rb", "wb", "ab", etc.</p>
+
+<h4>Closing a File - fclose()</h4>
+<pre><code>fclose(fp);  // Closes the file associated with fp</code></pre>
+
+<h3>12.4 File I/O Functions</h3>
+
+<h4>Character I/O</h4>
+<ul>
+    <li><strong>fgetc() / getc():</strong> Reads a single character from a file.
+        <br/><span class="inline-code">ch = fgetc(fp);</span></li>
+    <li><strong>fputc() / putc():</strong> Writes a single character to a file.
+        <br/><span class="inline-code">fputc(ch, fp);</span></li>
+</ul>
+
+<h4>String I/O</h4>
+<ul>
+    <li><strong>fgets():</strong> Reads a line from a file.
+        <br/><span class="inline-code">fgets(str, n, fp);</span></li>
+    <li><strong>fputs():</strong> Writes a string to a file.
+        <br/><span class="inline-code">fputs(str, fp);</span></li>
+</ul>
+
+<h4>Formatted I/O</h4>
+<ul>
+    <li><strong>fprintf():</strong> Writes formatted data to a file (like printf but to file).
+        <br/><span class="inline-code">fprintf(fp, "%s %d %f", name, age, amount);</span></li>
+    <li><strong>fscanf():</strong> Reads formatted data from a file (like scanf but from file).
+        <br/><span class="inline-code">fscanf(fp, "%d %s %d", &amp;acno, name, &amp;bal);</span></li>
+</ul>
+
+<h4>Direct/Binary I/O</h4>
+<ul>
+    <li><strong>fwrite():</strong> Writes a block of data to a binary file.
+        <br/><span class="inline-code">fwrite(&amp;data, sizeof(data), 1, fp);</span></li>
+    <li><strong>fread():</strong> Reads a block of data from a binary file.
+        <br/><span class="inline-code">fread(&amp;data, sizeof(data), 1, fp);</span></li>
+</ul>
+
+<h3>12.5 Additional File Functions</h3>
+<ul>
+    <li><strong>fflush():</strong> Flushes the buffer contents to the file. <span class="inline-code">fflush(fp);</span></li>
+    <li><strong>remove():</strong> Deletes a file. <span class="inline-code">remove("stud.dat");</span></li>
+    <li><strong>rename():</strong> Renames a file. <span class="inline-code">rename("old.txt", "new.txt");</span></li>
+</ul>
+
+<h3>12.6 Random Access to Files</h3>
+<table>
+    <tr><th>Function</th><th>Syntax</th><th>Description</th></tr>
+    <tr>
+        <td>ftell()</td>
+        <td>long ftell(FILE *fp)</td>
+        <td>Returns current position of file pointer in bytes from start</td>
+    </tr>
+    <tr>
+        <td>rewind()</td>
+        <td>void rewind(FILE *fp)</td>
+        <td>Sets the file pointer to the beginning of the file</td>
+    </tr>
+    <tr>
+        <td>fseek()</td>
+        <td>fseek(FILE *fp, long offset, int origin)</td>
+        <td>Sets the file pointer to any position in the file</td>
+    </tr>
+</table>
+
+<h4>fseek() Origin Values</h4>
+<table>
+    <tr><th>Constant</th><th>Value</th><th>Meaning</th></tr>
+    <tr><td>SEEK_SET</td><td>0</td><td>Beginning of file</td></tr>
+    <tr><td>SEEK_CUR</td><td>1</td><td>Current position</td></tr>
+    <tr><td>SEEK_END</td><td>2</td><td>End of file</td></tr>
+</table>
+
+<pre><code>// Move to 10th byte from beginning
+fseek(fp, 10, SEEK_SET);
+
+// Move back by 5 bytes from current position
+fseek(fp, -5, SEEK_CUR);
+
+// Find file size
+fseek(fp, 0, SEEK_END);
+printf("File size = %ld bytes", ftell(fp));</code></pre>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Standard streams (stdin, stdout, stderr).</li>
+        <li>Text files vs Binary files differences.</li>
+        <li>File opening modes (r, w, a, r+, w+, a+ and with b).</li>
+        <li>fopen(), fclose(), fgetc(), fputc(), fgets(), fputs().</li>
+        <li>fprintf(), fscanf() for formatted file I/O.</li>
+        <li>fwrite(), fread() for binary file I/O.</li>
+        <li>Random access: fseek(), ftell(), rewind() with origin constants.</li>
+        <li>EOF (End of File) constant value is -1.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 13 ==================== -->
+<h2 id="unit13">Unit 13: Storage Classes</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the concept of storage classes in C, which determine the scope, lifetime, memory location, and default initial value of variables. The four storage classes are: auto, static, extern, and register.</p>
+</div>
+
+<h3>13.1 What are Storage Classes?</h3>
+<p>Storage class determines the following about a variable:</p>
+<ul>
+    <li><strong>Where</strong> the variable is stored (memory or CPU register).</li>
+    <li><strong>Default initial value</strong> (garbage or zero).</li>
+    <li><strong>Scope</strong> (where the variable can be accessed).</li>
+    <li><strong>Lifetime</strong> (how long the variable exists in memory).</li>
+</ul>
+
+<h3>13.2 Automatic Storage Class (auto)</h3>
+<ul>
+    <li><strong>Storage:</strong> Main memory (RAM).</li>
+    <li><strong>Default Value:</strong> Garbage value.</li>
+    <li><strong>Scope:</strong> Local to the function/block where declared.</li>
+    <li><strong>Lifetime:</strong> Exists only while control is within the block.</li>
+    <li><strong>Keyword:</strong> auto (default, usually omitted).</li>
+</ul>
+<pre><code>void func()
+{
+    auto int x;  // Same as: int x;
+    // x contains garbage value
+}</code></pre>
+
+<h3>13.3 Static Storage Class (static)</h3>
+<ul>
+    <li><strong>Storage:</strong> Main memory.</li>
+    <li><strong>Default Value:</strong> Zero (0).</li>
+    <li><strong>Scope:</strong> Local to the function/block (if local static) or file (if global static).</li>
+    <li><strong>Lifetime:</strong> Exists throughout the entire program execution. <strong>Retains value between function calls.</strong></li>
+    <li><strong>Keyword:</strong> static.</li>
+</ul>
+<pre><code>void count()
+{
+    static int x = 0;  // Initialized only once
+    x++;
+    printf("%d ", x);
+}
+
+// Calling count() 3 times prints: 1 2 3
+// Without static, it would print: 1 1 1</code></pre>
+
+<h4>Types of Static Variables</h4>
+<ul>
+    <li><strong>Local Static:</strong> Has block/function scope, retains value between calls.</li>
+    <li><strong>Global Static:</strong> Visible only within the file where defined (not in other files).</li>
+</ul>
+
+<h3>13.4 External Storage Class (extern)</h3>
+<ul>
+    <li><strong>Storage:</strong> Main memory.</li>
+    <li><strong>Default Value:</strong> Zero (0).</li>
+    <li><strong>Scope:</strong> File scope (available to all functions in the file).</li>
+    <li><strong>Lifetime:</strong> Exists as long as the program is running.</li>
+    <li><strong>Keyword:</strong> extern.</li>
+</ul>
+<pre><code>int n = 5;  // Global variable (defined outside all functions)
+
+void main()
+{
+    extern int n;  // Declaration (tells compiler n is defined elsewhere)
+    printf("%d", n);
+}
+
+void display()
+{
+    extern int n;  // Can access n here too
+    printf("%d", n);
+}</code></pre>
+
+<h4>Advantages of Global Variables</h4>
+<ul>
+    <li>Simplifies communication between functions.</li>
+    <li>No need to pass them as arguments.</li>
+</ul>
+<h4>Disadvantages</h4>
+<ul>
+    <li>Any function can modify them, leading to unexpected changes.</li>
+    <li>Makes debugging difficult.</li>
+</ul>
+
+<h3>13.5 Register Storage Class (register)</h3>
+<ul>
+    <li><strong>Storage:</strong> CPU registers (fastest storage).</li>
+    <li><strong>Default Value:</strong> Garbage value.</li>
+    <li><strong>Scope:</strong> Local to the function/block.</li>
+    <li><strong>Lifetime:</strong> Exists as long as control is within the block.</li>
+    <li><strong>Keyword:</strong> register.</li>
+</ul>
+<pre><code>register int i;  // Suggests compiler to store in CPU register
+// Faster access than normal variables</code></pre>
+
+<h4>Limitations of Register Variables</h4>
+<ul>
+    <li>Limited number of CPU registers available.</li>
+    <li>Cannot use address-of operator (&amp;) on register variables.</li>
+    <li>Cannot use pointers with register variables.</li>
+    <li>Compiler may ignore the register request and store in memory instead.</li>
+</ul>
+
+<h3>13.6 Summary of Storage Classes</h3>
+<table>
+    <tr>
+        <th>Storage Class</th>
+        <th>Storage</th>
+        <th>Default Value</th>
+        <th>Scope</th>
+        <th>Lifetime</th>
+        <th>Keyword</th>
+    </tr>
+    <tr>
+        <td>Automatic</td>
+        <td>Memory</td>
+        <td>Garbage</td>
+        <td>Block/Function</td>
+        <td>Within block</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>Static</td>
+        <td>Memory</td>
+        <td>Zero</td>
+        <td>Block/File</td>
+        <td>Entire program</td>
+        <td>static</td>
+    </tr>
+    <tr>
+        <td>External</td>
+        <td>Memory</td>
+        <td>Zero</td>
+        <td>File (Global)</td>
+        <td>Entire program</td>
+        <td>extern</td>
+    </tr>
+    <tr>
+        <td>Register</td>
+        <td>CPU Register</td>
+        <td>Garbage</td>
+        <td>Block/Function</td>
+        <td>Within block</td>
+        <td>register</td>
+    </tr>
+</table>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Four storage classes: auto, static, extern, register with their properties.</li>
+        <li>Static variables retain values between function calls (key difference from auto).</li>
+        <li>Register variables cannot use &amp; operator or pointers.</li>
+        <li>extern keyword used to declare global variables across files.</li>
+        <li>Default values: auto/register = garbage, static/extern = zero.</li>
+        <li>Difference between auto and static storage class.</li>
+    </ul>
+</div>
+
+<hr/>
+
+<!-- ==================== UNIT 14 ==================== -->
+<h2 id="unit14">Unit 14: The C Preprocessor</h2>
+
+<div class="unit-overview">
+    <p><strong>Unit Overview:</strong> This unit covers the C preprocessor, its features, macro expansion, macros with arguments, macros vs functions, file inclusion, and conditional compilation directives.</p>
+</div>
+
+<h3>14.1 Introduction to Preprocessor</h3>
+<p>The preprocessor is a program that processes the source code <strong>before</strong> it is given to the compiler. It takes action based on special instructions called <strong>preprocessor directives</strong> which begin with <span class="inline-code">#</span>.</p>
+
+<h4>Tasks Performed by the Preprocessor</h4>
+<ul>
+    <li>Joins lines ending with a backslash (\) into a single line.</li>
+    <li>Divides the program into a stream of tokens.</li>
+    <li>Removes comments and replaces them with a single space.</li>
+    <li>Processes preprocessor directives and expands macros.</li>
+</ul>
+
+<h3>14.2 Macro Expansion (#define)</h3>
+<p>A macro is a fragment of code that is given a name. Whenever the name is used in the program, it is replaced by the macro definition.</p>
+
+<pre><code>// Simple macro (object-like macro)
+#define PI 3.14
+#define MAX 100
+
+// Usage in program
+area = PI * r * r;    // Replaced as: area = 3.14 * r * r;
+for(i = 0; i &lt; MAX; i++)  // Replaced as: for(i = 0; i &lt; 100; i++)</code></pre>
+
+<h3>14.3 Macros with Arguments (Function-like Macros)</h3>
+<p>Macros can take arguments, making them look like functions.</p>
+<pre><code>#define HALFOF(x)  x/2
+#define SQR(x)     x*x
+#define MAX(x,y)   ((x) &gt; (y) ? (x) : (y))
+
+// Usage
+result = HALFOF(10);     // Replaced as: result = 10/2;
+ans = SQR(a);            // Replaced as: ans = a*a;
+big = MAX(5, 10);        // Replaced as: big = ((5) &gt; (10) ? (5) : (10));</code></pre>
+
+<div class="note">
+    <p><strong>Important:</strong> Always enclose macro arguments in parentheses to avoid unexpected results. For example, <span class="inline-code">HALFOF(10+2)</span> without parentheses would give <span class="inline-code">10+2/2 = 11</span> instead of <span class="inline-code">(10+2)/2 = 6</span>.</p>
+</div>
+
+<h3>14.4 Multiline Macros</h3>
+<p>Use backslash (\) at the end of each line to continue a macro on the next line.</p>
+<pre><code>#define design for(i=1;i&lt;=5;i++){\
+                    for(j=1;j&lt;=i;j++){\
+                        printf("*");}\
+                    printf("\n");}</code></pre>
+
+<h3>14.5 Macros vs Functions</h3>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Macro</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>Usually small in size</td>
+        <td>Can contain several lines of code</td>
+    </tr>
+    <tr>
+        <td>Processing</td>
+        <td>Preprocessed (text replacement)</td>
+        <td>Compiled</td>
+    </tr>
+    <tr>
+        <td>Code Insertion</td>
+        <td>Code replaces macro name (inlined)</td>
+        <td>Function code is not inserted; call is made</td>
+    </tr>
+    <tr>
+        <td>Program Size</td>
+        <td>Increases (code duplicated at each use)</td>
+        <td>Does not increase</td>
+    </tr>
+    <tr>
+        <td>Execution Speed</td>
+        <td>Faster (no function call overhead)</td>
+        <td>Slower (function call and return overhead)</td>
+    </tr>
+    <tr>
+        <td>Type Checking</td>
+        <td>No type checking (risk of errors)</td>
+        <td>Strict type checking</td>
+    </tr>
+    <tr>
+        <td>Best For</td>
+        <td>Small, repeated code</td>
+        <td>Large, complex code</td>
+    </tr>
+</table>
+
+<h3>14.6 File Inclusion (#include)</h3>
+<p>The #include directive inserts the contents of a header file into the source code.</p>
+<pre><code>#include &lt;stdio.h&gt;    // Searches in standard directories
+#include "myhead.h"    // Searches in current directory first, then standard</code></pre>
+
+<h3>14.7 Conditional Compilation</h3>
+<p>Conditional compilation allows selective compilation of code based on conditions. It is useful for platform-specific code, debugging, and feature flags.</p>
+
+<h4>Preprocessor Directives for Conditional Compilation</h4>
+<ul>
+    <li><strong>#if:</strong> Tests if a compile-time condition is true.</li>
+    <li><strong>#ifdef:</strong> Returns true if the macro is defined.</li>
+    <li><strong>#ifndef:</strong> Returns true if the macro is NOT defined.</li>
+    <li><strong>#else:</strong> Alternative for #if.</li>
+    <li><strong>#elif:</strong> Else-if combination for #if.</li>
+    <li><strong>#endif:</strong> Ends preprocessor conditional block.</li>
+    <li><strong>#undef:</strong> Undefines a previously defined macro.</li>
+</ul>
+
+<pre><code>// Example: Conditional compilation
+#define DEBUG 1
+
+#if DEBUG
+    printf("Debug mode is ON");
+#else
+    printf("Debug mode is OFF");
+#endif
+
+// Example: #ifdef
+#ifdef WINDOWS
+    #include &lt;windows.h&gt;
+#else
+    #include &lt;unistd.h&gt;
+#endif
+
+// Example: #ifndef (include guard)
+#ifndef MYHEADER_H
+#define MYHEADER_H
+    // Header contents
+#endif</code></pre>
+
+<h3>14.8 Other Preprocessor Directives</h3>
+<ul>
+    <li><strong>#pragma:</strong> Compiler-specific directives.</li>
+    <li><strong>#error:</strong> Generates a compilation error message.</li>
+    <li><strong>#line:</strong> Resets the line number and filename for error messages.</li>
+</ul>
+
+<div class="exam-focus">
+    <h3>Exam Focus / Key Takeaways</h3>
+    <ul>
+        <li>Definition: Preprocessor processes source code BEFORE compilation.</li>
+        <li>#define for macro expansion (simple and with arguments).</li>
+        <li>Always use parentheses in macros with arguments to avoid errors.</li>
+        <li>Macros vs Functions differences (most frequently asked!).li>
+        <li>#include with angle brackets (&lt;&gt;) vs double quotes ("").</li>
+        <li>Conditional compilation directives: #if, #ifdef, #ifndef, #else, #elif, #endif.</li>
+        <li>#undef to undefine a macro.</li>
+    </ul>
+</div>
+
+</div>
+</body>
+</html>
