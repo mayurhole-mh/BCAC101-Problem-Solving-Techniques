@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCAC102 - Mathematics for Computers</title>
+<style>
+/* ============ GLOBAL STYLES ============ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.7;
+  font-size: 16px;
+}
+a { color: #1565c0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============ HEADER ============ */
+.header {
+  background: linear-gradient(135deg, #1a237e, #283593, #3949ab);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.header h1 { font-size: 1.6em; margin-bottom: 5px; }
+.header .subtitle { font-size: 0.95em; opacity: 0.9; }
+.back-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #bbdefb;
+  font-size: 0.9em;
+}
+.back-link:hover { color: white; }
+
+/* ============ EXAM PATTERN BANNER ============ */
+.exam-pattern {
+  background: linear-gradient(135deg, #ff6f00, #ff8f00);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* ============ NAVIGATION ============ */
+.nav-container {
+  background: #263238;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-container a {
+  display: inline-block;
+  color: #b0bec5;
+  padding: 6px 12px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: 0.82em;
+  border: 1px solid #455a64;
+  transition: all 0.2s;
+}
+.nav-container a:hover {
+  background: #3949ab;
+  color: white;
+  border-color: #3949ab;
+  text-decoration: none;
+}
+
+/* ============ MAIN CONTENT ============ */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+/* ============ UNIT STYLING ============ */
+.unit {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.unit h2 {
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3949ab;
+}
+.unit h3 {
+  color: #2c3e50;
+  font-size: 1.15em;
+  margin: 15px 0 10px 0;
+}
+
+/* ============ SPECIAL BOXES ============ */
+.what-is {
+  background: #f3e5f5;
+  border-left: 5px solid #7b1fa2;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.what-is h3 { color: #7b1fa2; }
+
+.concept-box {
+  background: #e8f5e9;
+  border-left: 5px solid #388e3c;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.concept-box h3 { color: #388e3c; }
+
+.formula-box {
+  background: #e0f0ff;
+  border-left: 5px solid #1565c0;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.formula-box h3 { color: #1565c0; }
+
+.exam-box {
+  background: #ffe0e0;
+  border-left: 5px solid #c62828;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.exam-box h3 { color: #c62828; }
+
+.memory-box {
+  background: #fffde0;
+  border-left: 5px solid #f9a825;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.memory-box h3 { color: #f9a825; }
+
+.summary-box {
+  background: #e0ffe0;
+  border-left: 5px solid #2e7d32;
+  padding: 15px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.summary-box h3 { color: #2e7d32; }
+
+/* ============ CONTENT ELEMENTS ============ */
+p { margin-bottom: 10px; }
+ul, ol { margin: 10px 0 10px 25px; }
+li { margin-bottom: 5px; }
+strong { color: #1a237e; }
+em { color: #555; }
+code {
+  background: #e8eaf6;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.92em;
+  color: #283593;
+}
+.example {
+  background: #fafafa;
+  border: 1px dashed #bdbdbd;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+.step {
+  background: #e3f2fd;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 0.93em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.92em;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: left;
+}
+th { background: #e8eaf6; color: #1a237e; }
+tr:nth-child(even) { background: #f5f5f5; }
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #3949ab;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1001;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.back-to-top:hover {
+  background: #1a237e;
+  text-decoration: none;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: #263238;
+  color: #b0bec5;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+.footer .creator {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.2em; }
+  .unit { padding: 18px 14px; }
+  .unit h2 { font-size: 1.25em; }
+  .nav-container a { font-size: 0.75em; padding: 5px 9px; }
+  .container { padding: 15px 10px; }
+  .formula-box, .exam-box, .memory-box, .summary-box, .what-is, .concept-box {
+    padding: 12px 14px;
+  }
+  table { font-size: 0.82em; }
+  th, td { padding: 5px 7px; }
+  .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1.2em; }
+}
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .header { padding: 20px 15px; }
+  .header h1 { font-size: 1em; }
+  .exam-pattern { font-size: 0.82em; }
+  .unit h2 { font-size: 1.1em; }
+  .nav-container a { font-size: 0.7em; padding: 4px 7px; margin: 2px; }
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+  <h1>BCAC102 - Mathematics for Computers</h1>
+  <div class="subtitle">YCMOU University | Complete Study Notes | Beginner Friendly</div>
+</div>
+
+<!-- ========== EXAM PATTERN ========== -->
+<div class="exam-pattern">
+  <strong>Exam Pattern:</strong> 70 Marks | 2.5 Hours | Q1-Q3: 10 marks each (OR pattern, write 1) = 30 marks | Q4: 25 marks (Any 5 of 6, 5 marks each) | Q5: 15 marks (Any 5 of 6, 3 marks each)
+</div>
+
+<!-- ========== NAVIGATION ========== -->
+<div class="nav-container">
+  <a href="#unit-1">Unit 1</a>
+  <a href="#unit-2">Unit 2</a>
+  <a href="#unit-3">Unit 3</a>
+  <a href="#unit-4">Unit 4</a>
+  <a href="#unit-5">Unit 5</a>
+  <a href="#unit-6">Unit 6</a>
+  <a href="#unit-7">Unit 7</a>
+  <a href="#unit-8">Unit 8</a>
+  <a href="#unit-9">Unit 9</a>
+  <a href="#unit-10">Unit 10</a>
+  <a href="#unit-11">Unit 11</a>
+  <a href="#unit-12">Unit 12</a>
+  <a href="#unit-13">Unit 13</a>
+  <a href="#unit-14">Unit 14</a>
+  <a href="#unit-15">Unit 15</a>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="container">
+
+<!-- ==================== UNIT 1 ==================== -->
+<div class="unit" id="unit-1">
+  <h2>Unit 1: Relevance of Mathematics in Computers</h2>
+
+  <div class="what-is">
+    <h3>Why Do We Need Maths for Computers?</h3>
+    <p>Think of a computer as a very fast calculator. Everything a computer does - from showing this page on your screen to sending a WhatsApp message - is done using mathematics. Without maths, computers simply cannot work! Just like you need a language to talk to people, computers need mathematics to understand and process information.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>1. Algorithms:</strong> An algorithm is a step-by-step procedure to solve a problem. Maths helps us write correct and efficient algorithms. For example, Google uses mathematical algorithms to find the best search results for you.</p>
+    <p><strong>2. Data Structures:</strong> How data is stored and organized in a computer. Trees, graphs, and arrays all come from mathematics (especially set theory and graph theory).</p>
+    <p><strong>3. Cryptography:</strong> Keeping data secure online (like your bank details) uses number theory and prime numbers. When you see "https" in a website URL, maths is protecting your data!</p>
+    <p><strong>4. Computer Graphics:</strong> Every image, video game, and animation you see on screen uses coordinate geometry, vectors, and matrices to draw and move objects.</p>
+    <p><strong>5. Database Management:</strong> Set theory (union, intersection) is the basis of SQL queries that retrieve data from databases.</p>
+    <p><strong>6. Artificial Intelligence:</strong> Machine learning and AI use matrices, probability, and calculus to "learn" from data.</p>
+    <p><strong>7. Logic and Circuits:</strong> Boolean algebra (mathematical logic) is used to design every digital circuit inside your computer and phone.</p>
+  </div>
+
+  <div class="formula-box">
+    <h3>Mathematical Areas Used in Computers</h3>
+    <table>
+      <tr><th>Maths Area</th><th>Where It's Used in Computers</th></tr>
+      <tr><td>Set Theory</td><td>Database queries (SQL), Data structures</td></tr>
+      <tr><td>Logic</td><td>Circuit design, Programming conditions (if-else)</td></tr>
+      <tr><td>Matrices</td><td>Computer graphics, Image processing</td></tr>
+      <tr><td>Graph Theory</td><td>Networking, Google Maps routing</td></tr>
+      <tr><td>Number Systems</td><td>Binary code, Memory addressing</td></tr>
+      <tr><td>Probability</td><td>AI, Machine learning, Data analysis</td></tr>
+      <tr><td>Calculus</td><td>Animation, Physics simulations</td></tr>
+    </table>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks (50-60 words):</strong> Mathematics is essential for computers because it provides the foundation for algorithms, data structures, cryptography, graphics, and AI. Every computation a computer performs is based on mathematical operations. Set theory is used in databases, logic in circuits, matrices in graphics, and graph theory in networking.</p>
+    <p><strong>For 5 marks (100-125 words):</strong> Mathematics is the backbone of computer science. (1) <strong>Algorithms:</strong> Mathematical logic helps design step-by-step procedures for solving problems. (2) <strong>Data Structures:</strong> Trees, graphs, and arrays are based on mathematical concepts. (3) <strong>Cryptography:</strong> Number theory and prime numbers are used to secure data transmission (e.g., RSA encryption). (4) <strong>Computer Graphics:</strong> Vectors, matrices, and coordinate geometry are used to render images and animations. (5) <strong>Database:</strong> Set operations (union, intersection) form the basis of SQL queries. (6) <strong>Digital Circuits:</strong> Boolean algebra and logic gates design computer hardware. (7) <strong>AI/ML:</strong> Probability, statistics, and linear algebra power machine learning models.</p>
+    <p><strong>For 10 marks (200-250 words):</strong> Write the 5-mark answer above and add: Mathematics is not just a subject but the <em>language</em> of computers. Every digital device operates on binary numbers (0s and 1s), which is a number system from mathematics. When you type a search in Google, algorithms use graph theory (PageRank) to find relevant pages. When you play a video game, matrices transform 3D objects into 2D screen images using matrix multiplication. When you shop online, cryptography based on number theory protects your credit card details. Database management systems use set theory - a SQL "JOIN" operation is essentially a Cartesian product of sets. Compression algorithms (ZIP files, JPEG images) use mathematical transforms. Even social media recommendations use matrix operations and probability. In summary, every aspect of computing - from hardware design to software applications - relies on mathematical principles. Without mathematics, the digital world as we know it would not exist.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p>Remember: <strong>"ACDGA"</strong> - <strong>A</strong>lgorithms, <strong>C</strong>ryptography, <strong>D</strong>atabases, <strong>G</strong>raphics, <strong>A</strong>I - the five main areas where maths is used in computers.</p>
+    <p>Or remember: <strong>"Maths is the MOTHER of Computers"</strong> - without mother, no child exists; without maths, no computer works!</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Mathematics is the foundation of all computer science</li>
+      <li>Algorithms use mathematical logic for problem-solving</li>
+      <li>Cryptography (data security) uses number theory and primes</li>
+      <li>Computer graphics use vectors, matrices, and geometry</li>
+      <li>Database queries are based on set theory operations</li>
+      <li>Digital circuits are designed using Boolean algebra</li>
+      <li>AI and machine learning use probability and statistics</li>
+      <li>Networking and routing use graph theory</li>
+      <li>Without maths, computers cannot function at all</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 2 ==================== -->
+<div class="unit" id="unit-2">
+  <h2>Unit 2: Set Theory</h2>
+
+  <div class="what-is">
+    <h3>What is a Set? (Simple Explanation)</h3>
+    <p>A <strong>set</strong> is simply a <em>collection of distinct (different) things</em>. Think of it like a bag where you put items - but you never put the same item twice! For example, a set of fruits = {apple, mango, banana}. If you have a box of crayons, that's a set of colors. Each item in a set is called an <strong>element</strong> or <strong>member</strong>.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>1. Notation:</strong> Sets are written with curly braces { }. Capital letters name the set, small letters name elements.</p>
+    <div class="example">A = {1, 2, 3, 4, 5} means "Set A contains the numbers 1, 2, 3, 4, and 5"</div>
+    
+    <p><strong>2. Element check:</strong> We use the symbol &isin; (belongs to) and &notin; (does not belong to).</p>
+    <div class="example">If A = {1, 2, 3}, then 2 &isin; A (2 belongs to A) and 7 &notin; A (7 does not belong to A)</div>
+
+    <p><strong>3. Types of Sets:</strong></p>
+    <ul>
+      <li><strong>Empty Set (Null Set) &empty;:</strong> A set with no elements. Example: Set of even prime numbers greater than 2 = { } = &empty;</li>
+      <li><strong>Singleton Set:</strong> A set with exactly one element. Example: {7}</li>
+      <li><strong>Finite Set:</strong> A set with a countable number of elements. Example: {a, b, c}</li>
+      <li><strong>Infinite Set:</strong> A set with uncountable elements. Example: Set of natural numbers = {1, 2, 3, ...}</li>
+      <li><strong>Universal Set (U):</strong> The big set that contains everything we are talking about. Example: If discussing students in a class, U = all students in the class.</li>
+      <li><strong>Subset (&sube;):</strong> Set A is a subset of B if EVERY element of A is also in B. Example: A = {1, 2}, B = {1, 2, 3, 4} &rarr; A &sube; B</li>
+      <li><strong>Proper Subset (&sub;):</strong> A is a proper subset of B if A is a subset of B but A &ne; B (A is smaller than B).</li>
+      <li><strong>Superset:</strong> If A &sube; B, then B is the superset of A.</li>
+      <li><strong>Power Set P(A):</strong> The set of ALL possible subsets of A. If A has n elements, the power set has 2<sup>n</sup> elements.</li>
+    </ul>
+    <div class="example">If A = {1, 2}, then P(A) = {{}, {1}, {2}, {1,2}} &rarr; 2&sup2; = 4 subsets</div>
+
+    <p><strong>4. Set Operations:</strong></p>
+    <ul>
+      <li><strong>Union (A&cup;B):</strong> All elements that are in A OR in B (or both). Think: "Combine everything"</li>
+      <li><strong>Intersection (A&cap;B):</strong> Elements that are in BOTH A and B. Think: "Common elements"</li>
+      <li><strong>Difference (A-B):</strong> Elements in A but NOT in B. Think: "A minus B's elements"</li>
+      <li><strong>Complement (A'):</strong> Elements in U but NOT in A. Think: "Everything except A"</li>
+    </ul>
+    <div class="example">
+      Let A = {1, 2, 3, 4}, B = {3, 4, 5, 6}, U = {1, 2, 3, 4, 5, 6, 7, 8}<br>
+      A&cup;B = {1, 2, 3, 4, 5, 6} (all elements from both)<br>
+      A&cap;B = {3, 4} (common elements)<br>
+      A-B = {1, 2} (in A but not in B)<br>
+      A' = {5, 6, 7, 8} (in U but not in A)
+    </div>
+
+    <p><strong>5. Venn Diagrams:</strong> Pictures that show sets as circles. Union is the total shaded area, intersection is the overlapping area.</p>
+
+    <p><strong>6. De Morgan's Laws (VERY IMPORTANT):</strong></p>
+    <ul>
+      <li>(A&cup;B)' = A'&cap;B' &nbsp;&nbsp; (Complement of union = Intersection of complements)</li>
+      <li>(A&cap;B)' = A'&cup;B' &nbsp;&nbsp; (Complement of intersection = Union of complements)</li>
+    </ul>
+
+    <p><strong>7. Laws of Set Theory:</strong></p>
+    <ul>
+      <li><strong>Commutative:</strong> A&cup;B = B&cup;A and A&cap;B = B&cap;A</li>
+      <li><strong>Associative:</strong> (A&cup;B)&cup;C = A&cup;(B&cup;C) and (A&cap;B)&cap;C = A&cap;(B&cap;C)</li>
+      <li><strong>Distributive:</strong> A&cup;(B&cap;C) = (A&cup;B)&cap;(A&cup;C) and A&cap;(B&cup;C) = (A&cap;B)&cup;(A&cap;C)</li>
+      <li><strong>Idempotent:</strong> A&cup;A = A and A&cap;A = A</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p><strong>1. Number of subsets:</strong> If a set has n elements, it has 2<sup>n</sup> subsets.</p>
+    <p><strong>2. Number of proper subsets:</strong> 2<sup>n</sup> - 1</p>
+    <p><strong>3. Cardinality of Union:</strong> |A&cup;B| = |A| + |B| - |A&cap;B|</p>
+    <p><strong>4. For three sets:</strong> |A&cup;B&cup;C| = |A| + |B| + |C| - |A&cap;B| - |B&cap;C| - |A&cap;C| + |A&cap;B&cap;C|</p>
+    <div class="example">
+      <strong>Example:</strong> If A = {1,2,3,4,5} and B = {3,4,5,6,7}, find |A&cup;B|<br>
+      |A| = 5, |B| = 5, |A&cap;B| = |{3,4,5}| = 3<br>
+      |A&cup;B| = 5 + 5 - 3 = 7 &rarr; A&cup;B = {1,2,3,4,5,6,7} &check;
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks - Define set and give examples:</strong> A set is a well-defined collection of distinct objects. Each object is called an element. Sets are denoted by capital letters and elements are listed in curly braces. Example: A = {1,2,3}, B = {red, blue, green}. The symbol &isin; means "belongs to" - e.g., 2 &isin; A. The symbol &empty; denotes the empty set with no elements.</p>
+    <p><strong>For 5 marks - Explain set operations with example:</strong> The four main set operations are: (1) Union A&cup;B = all elements in A or B, (2) Intersection A&cap;B = elements common to both A and B, (3) Difference A-B = elements in A but not in B, (4) Complement A' = elements in U but not in A. Example: A={1,2,3}, B={2,3,4}, U={1,2,3,4,5}. Then A&cup;B={1,2,3,4}, A&cap;B={2,3}, A-B={1}, A'={4,5}.</p>
+    <p><strong>For 10 marks - Prove De Morgan's Law using Venn diagram:</strong> State both laws. Draw Venn diagrams step by step. For (A&cup;B)' = A'&cap;B': First shade A&cup;B (all area inside both circles), then shade its complement (area outside both circles). Then separately shade A' and B', and show their intersection gives the same region. Conclude that both sides produce identical Venn diagram regions, hence proved. Similarly prove (A&cap;B)' = A'&cup;B'.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>De Morgan's Laws:</strong> Think of it as "BREAK the bar, CHANGE the sign!" When the complement bar (') is distributed over &cup; or &cap;, the operator flips: &cup; becomes &cap; and &cap; becomes &cup;.</p>
+    <p><strong>Union vs Intersection:</strong> Union (&cup;) sounds like "You-nion" = "ALL of YOU together" = combine everything. Intersection (&cap;) looks like an "n" = "n" for "narrow/common" = only common elements.</p>
+    <p><strong>Power Set:</strong> "Power of 2" - if n elements, then 2<sup>n</sup> subsets. For {a,b,c} = 3 elements = 2&sup3; = 8 subsets.</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>A set is a collection of distinct elements written in { }</li>
+      <li>Types: Empty, Singleton, Finite, Infinite, Universal, Subset, Power set</li>
+      <li>Union (&cup;) = combine all, Intersection (&cap;) = common elements</li>
+      <li>Difference (A-B) = in A but not in B, Complement (A') = in U but not in A</li>
+      <li>De Morgan's Laws: (A&cup;B)' = A'&cap;B' and (A&cap;B)' = A'&cup;B'</li>
+      <li>|A&cup;B| = |A| + |B| - |A&cap;B|</li>
+      <li>Power set has 2<sup>n</sup> elements when original set has n elements</li>
+      <li>Laws: Commutative, Associative, Distributive, Idempotent</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 3 ==================== -->
+<div class="unit" id="unit-3">
+  <h2>Unit 3: Mathematical Induction</h2>
+
+  <div class="what-is">
+    <h3>What is Mathematical Induction? (Simple Explanation)</h3>
+    <p>Imagine you have a row of dominoes standing up. If you push the first domino, it falls and knocks down the second, which knocks down the third, and so on - ALL dominoes fall! Mathematical induction works exactly like this. You prove something is true for the first case, then show that if it's true for any case, it must also be true for the next case. This proves it's true for ALL cases!</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Mathematical Induction</strong> is a method to prove that a statement is true for all natural numbers (1, 2, 3, 4, ...).</p>
+    <p>It has <strong>two steps</strong>:</p>
+    <p><strong>Step 1 - Base Case:</strong> Show the statement is true for n = 1 (or the first value).</p>
+    <p><strong>Step 2 - Inductive Step:</strong> Assume the statement is true for n = k (this is called the "induction hypothesis"). Then prove it is also true for n = k + 1.</p>
+    <p>If both steps succeed, the statement is true for ALL natural numbers!</p>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas and Examples</h3>
+    <p><strong>Example 1: Prove that 1 + 2 + 3 + ... + n = n(n+1)/2</strong></p>
+    <div class="step"><strong>Step 1 (Base Case):</strong> For n = 1: LHS = 1, RHS = 1(1+1)/2 = 2/2 = 1. LHS = RHS. &check;</div>
+    <div class="step"><strong>Step 2 (Inductive Step):</strong> Assume true for n = k: 1 + 2 + ... + k = k(k+1)/2 ... (i)</div>
+    <div class="step">Now prove for n = k+1: LHS = 1 + 2 + ... + k + (k+1)</div>
+    <div class="step">= k(k+1)/2 + (k+1) &nbsp;&nbsp; [using (i)]</div>
+    <div class="step">= [k(k+1) + 2(k+1)] / 2</div>
+    <div class="step">= (k+1)(k+2) / 2</div>
+    <div class="step">= (k+1)((k+1)+1) / 2 = RHS for n = k+1. &check;</div>
+    <p>Hence, by mathematical induction, the formula is true for all natural numbers.</p>
+
+    <p><strong>Example 2: Prove that 2<sup>n</sup> > n for all natural numbers</strong></p>
+    <div class="step"><strong>Step 1:</strong> For n = 1: 2<sup>1</sup> = 2 > 1. &check;</div>
+    <div class="step"><strong>Step 2:</strong> Assume 2<sup>k</sup> > k ... (i)</div>
+    <div class="step">For n = k+1: 2<sup>k+1</sup> = 2 &times; 2<sup>k</sup> > 2 &times; k = 2k [from (i)]</div>
+    <div class="step">Since k &ge; 1, we have 2k &ge; k + 1. Therefore 2<sup>k+1</sup> > k + 1. &check;</div>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks - What is mathematical induction?</strong> Mathematical induction is a proof technique to show a statement is true for all natural numbers. It has two steps: (1) Base case - verify the statement for n = 1, (2) Inductive step - assume it's true for n = k, then prove for n = k + 1. If both steps are verified, the statement is true for all n.</p>
+    <p><strong>For 5 marks - Explain the steps of mathematical induction:</strong> Mathematical induction works like falling dominoes. Step 1 (Base Case): Prove P(1) is true. Step 2 (Inductive Step): Assume P(k) is true (induction hypothesis), then prove P(k+1) is also true. The principle is: if P(1) is true, and P(k) &rarr; P(k+1), then P(n) is true for all n &isin; N. This works because truth propagates from 1 to 2, 2 to 3, and so on infinitely.</p>
+    <p><strong>For 10 marks - Prove using mathematical induction:</strong> Write the full proof as shown in the formula box above with clear Step 1 and Step 2. Always state the conclusion: "Hence, by the principle of mathematical induction, the statement is true for all natural numbers n."</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>"BAIL"</strong> - <strong>B</strong>ase case first, <strong>A</strong>ssume for k, <strong>I</strong>ncrease to k+1, <strong>L</strong>ink them together!</p>
+    <p>Think of it like a <strong>ladder</strong>: First you stand on the first rung (base case), then you show that if you can stand on any rung k, you can also reach rung k+1 (inductive step). This means you can climb the entire infinite ladder!</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Mathematical induction proves statements for all natural numbers</li>
+      <li>Step 1: Base case - verify for n = 1</li>
+      <li>Step 2: Assume true for n = k, prove for n = k + 1</li>
+      <li>It works like dominoes - push the first, all fall</li>
+      <li>Always state the induction hypothesis clearly</li>
+      <li>Conclusion: "By PMI, true for all n &isin; N"</li>
+      <li>Common formulas proved: sum of first n numbers = n(n+1)/2, sum of squares, 2<sup>n</sup> > n</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 4 ==================== -->
+<div class="unit" id="unit-4">
+  <h2>Unit 4: Exponents, Logarithms and Surds</h2>
+
+  <div class="what-is">
+    <h3>What are Exponents, Logarithms and Surds?</h3>
+    <p><strong>Exponent</strong> is a short way to write repeated multiplication. Instead of writing 2 &times; 2 &times; 2, we write 2&sup3; = 8. The small number on top tells you how many times to multiply the base by itself.</p>
+    <p><strong>Logarithm</strong> is the REVERSE of exponents! If 2&sup3; = 8, then log<sub>2</sub>8 = 3 (the exponent you need). Logarithm asks: "What power do I need to raise the base to, to get this number?"</p>
+    <p><strong>Surds</strong> are square roots (or cube roots etc.) that cannot be simplified to a whole number or simple fraction. Like &radic;2 = 1.41421356... (never ends!). Surds are <em>irrational numbers</em> left in root form.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Laws of Exponents:</strong></p>
+    <ul>
+      <li>a<sup>m</sup> &times; a<sup>n</sup> = a<sup>m+n</sup> &nbsp;&nbsp; (same base, add exponents)</li>
+      <li>a<sup>m</sup> &divide; a<sup>n</sup> = a<sup>m-n</sup> &nbsp;&nbsp; (same base, subtract exponents)</li>
+      <li>(a<sup>m</sup>)<sup>n</sup> = a<sup>m&times;n</sup> &nbsp;&nbsp; (power of power, multiply exponents)</li>
+      <li>(a &times; b)<sup>n</sup> = a<sup>n</sup> &times; b<sup>n</sup> &nbsp;&nbsp; (distribute over multiplication)</li>
+      <li>a<sup>0</sup> = 1 &nbsp;&nbsp; (anything to power 0 equals 1)</li>
+      <li>a<sup>-n</sup> = 1/a<sup>n</sup> &nbsp;&nbsp; (negative exponent = reciprocal)</li>
+    </ul>
+    <div class="example">
+      2&sup3; &times; 2&sup4; = 2<sup>7</sup> = 128 &nbsp; | &nbsp; 5<sup>6</sup>/5&sup2; = 5<sup>4</sup> = 625 &nbsp; | &nbsp; (3&sup2;)&sup3; = 3<sup>6</sup> = 729 &nbsp; | &nbsp; 10<sup>0</sup> = 1 &nbsp; | &nbsp; 2<sup>-3</sup> = 1/2&sup3; = 1/8
+    </div>
+
+    <p><strong>Laws of Logarithms:</strong></p>
+    <ul>
+      <li>log<sub>a</sub>(M &times; N) = log<sub>a</sub>M + log<sub>a</sub>N &nbsp;&nbsp; (Product rule)</li>
+      <li>log<sub>a</sub>(M &divide; N) = log<sub>a</sub>M - log<sub>a</sub>N &nbsp;&nbsp; (Quotient rule)</li>
+      <li>log<sub>a</sub>(M<sup>n</sup>) = n &times; log<sub>a</sub>M &nbsp;&nbsp; (Power rule)</li>
+      <li>log<sub>a</sub>a = 1 &nbsp;&nbsp; (log of same base = 1)</li>
+      <li>log<sub>a</sub>1 = 0 &nbsp;&nbsp; (log of 1 = 0)</li>
+      <li>log<sub>a</sub>a<sup>n</sup> = n &nbsp;&nbsp; (log and exponent cancel)</li>
+    </ul>
+    <div class="example">
+      log(100) = log(10&sup2;) = 2 &nbsp; | &nbsp; log<sub>2</sub>8 = log<sub>2</sub>2&sup3; = 3 &nbsp; | &nbsp; log<sub>5</sub>25 = 2
+    </div>
+
+    <p><strong>Common Log (base 10):</strong> Written as "log" without base. Used in science and engineering.</p>
+    <p><strong>Natural Log (base e):</strong> Written as "ln". Here e &approx; 2.718. Used in calculus.</p>
+
+    <p><strong>Surds:</strong></p>
+    <ul>
+      <li>&radic;a &times; &radic;b = &radic;(a&times;b)</li>
+      <li>&radic;a &divide; &radic;b = &radic;(a&divide;b)</li>
+      <li>Rationalize: &radic;a/&radic;b = (&radic;a &times; &radic;b) / b</li>
+    </ul>
+    <div class="example">Simplify &radic;50 = &radic;(25 &times; 2) = 5&radic;2 &nbsp; | &nbsp; Rationalize 1/&radic;3 = &radic;3/3</div>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p><strong>Change of Base Formula:</strong> log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</p>
+    <p><strong>Most useful:</strong> log<sub>a</sub>b = log b / log a (using common log)</p>
+    <div class="example">log<sub>3</sub>81 = log 81 / log 3 = 4 log 3 / log 3 = 4</div>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks - Laws of exponents:</strong> The laws are: (1) a<sup>m</sup>&times;a<sup>n</sup> = a<sup>m+n</sup>, (2) a<sup>m</sup>/a<sup>n</sup> = a<sup>m-n</sup>, (3) (a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>, (4) a<sup>0</sup> = 1, (5) a<sup>-n</sup> = 1/a<sup>n</sup>. Example: 2&sup3;&times;2&sup4; = 2<sup>7</sup> = 128.</p>
+    <p><strong>For 5 marks - Laws of logarithms with examples:</strong> (1) Product rule: log(MN) = log M + log N. Example: log(100&times;1000) = log 100 + log 1000 = 2 + 3 = 5. (2) Quotient rule: log(M/N) = log M - log N. Example: log(1000/10) = 3 - 1 = 2. (3) Power rule: log(M<sup>n</sup>) = n log M. Example: log(2<sup>5</sup>) = 5 log 2. (4) log<sub>a</sub>1 = 0, (5) log<sub>a</sub>a = 1.</p>
+    <p><strong>For 10 marks - Explain exponents, logarithms, and surds with solved examples:</strong> Cover all three topics with definitions, laws, and 2-3 solved numerical examples for each.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Exponents:</strong> "Multiply the base, ADD the powers" for same base multiplication.</p>
+    <p><strong>Logarithms:</strong> "Log turns MULTIPLICATION into ADDITION, DIVISION into SUBTRACTION!" This is the whole point of logarithms - they simplify hard calculations.</p>
+    <p><strong>Remember:</strong> a<sup>0</sup> = 1 (anything to power 0 is 1) and log 1 = 0 (log of 1 is always 0).</p>
+    <p><strong>Surds:</strong> "Pull out PAIRS from under the root" - &radic;50 = &radic;(25&times;2) = 5&radic;2 (25 = 5&sup2;, pulled out 5).</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Exponent = repeated multiplication: a<sup>n</sup> = a &times; a &times; ... (n times)</li>
+      <li>Key exponent rules: multiply &rarr; add powers, divide &rarr; subtract powers</li>
+      <li>a<sup>0</sup> = 1, a<sup>-n</sup> = 1/a<sup>n</sup></li>
+      <li>Logarithm is the reverse of exponent: if a<sup>x</sup> = N, then log<sub>a</sub>N = x</li>
+      <li>log(MN) = log M + log N, log(M/N) = log M - log N, log(M<sup>n</sup>) = n log M</li>
+      <li>Common log = base 10, Natural log = base e</li>
+      <li>Surds are irrational roots: &radic;2, &radic;3, &sup3;&radic;5 etc.</li>
+      <li>Rationalize surds by multiplying numerator and denominator by the surd</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 5 ==================== -->
+<div class="unit" id="unit-5">
+  <h2>Unit 5: Number Systems</h2>
+
+  <div class="what-is">
+    <h3>What is a Number System?</h3>
+    <p>A number system is a way of writing numbers using different bases. We normally use base 10 (decimal) because we have 10 fingers. But computers only understand 0 and 1, so they use base 2 (binary). There are also base 8 (octal) and base 16 (hexadecimal) which are shortcuts for writing binary numbers.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <table>
+      <tr><th>System</th><th>Base</th><th>Digits Used</th><th>Example</th></tr>
+      <tr><td>Decimal</td><td>10</td><td>0,1,2,3,4,5,6,7,8,9</td><td>255</td></tr>
+      <tr><td>Binary</td><td>2</td><td>0,1</td><td>11111111</td></tr>
+      <tr><td>Octal</td><td>8</td><td>0,1,2,3,4,5,6,7</td><td>377</td></tr>
+      <tr><td>Hexadecimal</td><td>16</td><td>0-9, A(10),B(11),C(12),D(13),E(14),F(15)</td><td>FF</td></tr>
+    </table>
+
+    <p><strong>Conversion Methods:</strong></p>
+    <p><strong>1. Decimal to Binary:</strong> Keep dividing by 2, write remainders from bottom to top.</p>
+    <div class="example">
+      Convert 13 to binary:<br>
+      13 &divide; 2 = 6 remainder 1<br>
+      6 &divide; 2 = 3 remainder 0<br>
+      3 &divide; 2 = 1 remainder 1<br>
+      1 &divide; 2 = 0 remainder 1<br>
+      Read remainders bottom to top: <strong>1101</strong>
+    </div>
+
+    <p><strong>2. Binary to Decimal:</strong> Multiply each digit by its power of 2 (from right, starting at 2<sup>0</sup>).</p>
+    <div class="example">
+      Convert 1101 to decimal:<br>
+      1&times;2&sup3; + 1&times;2&sup2; + 0&times;2&sup1; + 1&times;2&sup0; = 8 + 4 + 0 + 1 = <strong>13</strong>
+    </div>
+
+    <p><strong>3. Binary to Octal:</strong> Group binary digits in sets of 3 from right, convert each group.</p>
+    <div class="example">110101 &rarr; 110 | 101 &rarr; 6 | 5 &rarr; <strong>65</strong> (octal)</div>
+
+    <p><strong>4. Binary to Hexadecimal:</strong> Group binary digits in sets of 4 from right, convert each group.</p>
+    <div class="example">11010111 &rarr; 1101 | 0111 &rarr; D | 7 &rarr; <strong>D7</strong> (hex)</div>
+
+    <p><strong>5. Octal to Binary:</strong> Replace each octal digit with its 3-bit binary equivalent.</p>
+    <div class="example">65 (octal) &rarr; 6=110, 5=101 &rarr; <strong>110101</strong> (binary)</div>
+
+    <p><strong>6. Hexadecimal to Binary:</strong> Replace each hex digit with its 4-bit binary equivalent.</p>
+    <div class="example">A3 (hex) &rarr; A=1010, 3=0011 &rarr; <strong>10100011</strong> (binary)</div>
+
+    <p><strong>7. 1's Complement:</strong> Flip all bits (0&rarr;1, 1&rarr;0).</p>
+    <div class="example">1's complement of 10110 = 01001</div>
+
+    <p><strong>8. 2's Complement:</strong> 1's complement + 1. Used to represent negative numbers in computers.</p>
+    <div class="example">2's complement of 10110 = 01001 + 1 = <strong>01010</strong></div>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p><strong>Decimal to any base b:</strong> Repeatedly divide by b, collect remainders bottom to top.</p>
+    <p><strong>Any base to Decimal:</strong> Multiply each digit by base<sup>position</sup> and add.</p>
+    <p><strong>Binary &harr; Octal:</strong> Group/expand in 3 bits</p>
+    <p><strong>Binary &harr; Hex:</strong> Group/expand in 4 bits</p>
+    <p><strong>2's Complement:</strong> = 1's complement + 1</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> Define number systems and list the four types with their bases: Decimal (base 10), Binary (base 2), Octal (base 8), Hexadecimal (base 16). Hex uses digits 0-9 and letters A-F for values 10-15.</p>
+    <p><strong>For 5 marks:</strong> Explain the conversion from decimal to binary with a complete solved example. Show the step-by-step division method. Then show binary to decimal conversion using the positional multiplication method. Give one example of each.</p>
+    <p><strong>For 10 marks:</strong> Explain ALL conversion methods (decimal to binary, binary to decimal, decimal to octal, octal to decimal, decimal to hex, hex to decimal, binary to octal, octal to binary, binary to hex, hex to binary) with at least one solved example for each. Also explain 1's and 2's complement with examples.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Decimal to Binary:</strong> "Divide and Collect (bottom to top)" - keep dividing by 2, collect remainders from bottom.</p>
+    <p><strong>Binary to Decimal:</strong> "Powers from RIGHT starting at ZERO" - 2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup>, ...</p>
+    <p><strong>Binary to Octal = 3 bits, Binary to Hex = 4 bits:</strong> "OCTAL = 3 (O is like 0 with a line), HEX = 4 (4 letters in HEXA)"</p>
+    <p><strong>Hex digits A-F:</strong> A=10, B=11, C=12, D=13, E=14, F=15. Remember: "A=10, then just keep counting!"</p>
+    <p><strong>2's Complement:</strong> "Flip and Add 1" - flip all bits, then add 1.</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>4 number systems: Decimal(10), Binary(2), Octal(8), Hex(16)</li>
+      <li>Decimal to Binary: divide by 2, read remainders bottom-up</li>
+      <li>Binary to Decimal: multiply digits by powers of 2, add up</li>
+      <li>Binary &harr; Octal: group/expand in 3 bits</li>
+      <li>Binary &harr; Hex: group/expand in 4 bits</li>
+      <li>1's complement: flip all bits</li>
+      <li>2's complement: 1's complement + 1</li>
+      <li>Hex uses A(10) through F(15)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 6 ==================== -->
+<div class="unit" id="unit-6">
+  <h2>Unit 6: Permutations and Combinations</h2>
+
+  <div class="what-is">
+    <h3>What are Permutations and Combinations?</h3>
+    <p><strong>Permutation</strong> = Arrangement where ORDER MATTERS. Example: A password "123" is different from "321" - order matters!</p>
+    <p><strong>Combination</strong> = Selection where ORDER DOES NOT MATTER. Example: Choosing 3 friends from 5 to form a team - the order you pick them doesn't matter, the team is the same.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Factorial (n!):</strong> The product of all positive integers up to n.</p>
+    <div class="example">5! = 5 &times; 4 &times; 3 &times; 2 &times; 1 = 120 &nbsp; | &nbsp; 0! = 1 &nbsp; | &nbsp; 1! = 1</div>
+
+    <p><strong>Permutation Formula:</strong></p>
+    <p><sup>n</sup>P<sub>r</sub> = n! / (n-r)!</p>
+    <p>This counts: "How many ways to ARRANGE r items from n items?"</p>
+    <div class="example">
+      How many ways to arrange 3 books from 5 books on a shelf?<br>
+      <sup>5</sup>P<sub>3</sub> = 5!/(5-3)! = 5!/2! = (5&times;4&times;3&times;2&times;1)/(2&times;1) = 120/2 = <strong>60 ways</strong>
+    </div>
+
+    <p><strong>Combination Formula:</strong></p>
+    <p><sup>n</sup>C<sub>r</sub> = n! / [r! &times; (n-r)!]</p>
+    <p>This counts: "How many ways to SELECT r items from n items?"</p>
+    <div class="example">
+      How many ways to choose 3 students from 5 for a committee?<br>
+      <sup>5</sup>C<sub>3</sub> = 5!/[3!&times;(5-3)!] = 120/[6&times;2] = 120/12 = <strong>10 ways</strong>
+    </div>
+
+    <p><strong>Key Difference:</strong></p>
+    <table>
+      <tr><th>Permutation</th><th>Combination</th></tr>
+      <tr><td>Order matters</td><td>Order does NOT matter</td></tr>
+      <tr><td>Arrangement</td><td>Selection</td></tr>
+      <tr><td>AB &ne; BA</td><td>AB = BA (same group)</td></tr>
+      <tr><td>Password, seating arrangement</td><td>Team selection, lottery</td></tr>
+      <tr><td><sup>n</sup>P<sub>r</sub> = n!/(n-r)!</td><td><sup>n</sup>C<sub>r</sub> = n!/[r!(n-r)!]</td></tr>
+    </table>
+
+    <p><strong>Important Relations:</strong></p>
+    <ul>
+      <li><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n-r</sub> &nbsp; (e.g., <sup>5</sup>C<sub>3</sub> = <sup>5</sup>C<sub>2</sub> = 10)</li>
+      <li><sup>n</sup>P<sub>r</sub> = <sup>n</sup>C<sub>r</sub> &times; r!</li>
+      <li><sup>n</sup>C<sub>0</sub> = 1, <sup>n</sup>C<sub>n</sub> = 1</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>n! = n &times; (n-1) &times; (n-2) &times; ... &times; 1</p>
+    <p><sup>n</sup>P<sub>r</sub> = n! / (n-r)!</p>
+    <p><sup>n</sup>C<sub>r</sub> = n! / [r! &times; (n-r)!]</p>
+    <p>When all n items are to be arranged: n! ways</p>
+    <p>When r items are identical among n: n! / (number of identical items!)</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks - Difference between permutation and combination:</strong> Permutation is arrangement where order matters (e.g., passwords). Combination is selection where order doesn't matter (e.g., team selection). Formula: <sup>n</sup>P<sub>r</sub> = n!/(n-r)!, <sup>n</sup>C<sub>r</sub> = n!/[r!(n-r)!]. Example: Arranging 3 books from 5 is <sup>5</sup>P<sub>3</sub> = 60, selecting 3 from 5 is <sup>5</sup>C<sub>3</sub> = 10.</p>
+    <p><strong>For 5 marks:</strong> Define factorial, permutation, and combination with formulas. Solve 2 numerical examples - one for permutation and one for combination. Explain when to use which (keywords: arrange/order = permutation, select/choose = combination).</p>
+    <p><strong>For 10 marks:</strong> Full explanation with formulas, multiple solved examples, the difference table, and special cases (repetitions, restrictions). Include at least 3-4 different types of problems with complete solutions.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>"Permutation = Position matters, Combination = Choice only"</strong></p>
+    <p><strong>"P for Position, C for Choose"</strong></p>
+    <p>Ask yourself: "Does changing the ORDER give a different result?" If YES &rarr; Permutation. If NO &rarr; Combination.</p>
+    <p><strong>Quick calculation:</strong> <sup>n</sup>P<sub>r</sub> = n(n-1)(n-2)...(r terms). For <sup>5</sup>P<sub>3</sub> = 5&times;4&times;3 = 60 (just multiply 3 numbers starting from 5 going down).</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Factorial n! = n &times; (n-1) &times; ... &times; 1; 0! = 1</li>
+      <li>Permutation: Order matters. <sup>n</sup>P<sub>r</sub> = n!/(n-r)!</li>
+      <li>Combination: Order doesn't matter. <sup>n</sup>C<sub>r</sub> = n!/[r!(n-r)!]</li>
+      <li>Permutation = Arrangement, Combination = Selection</li>
+      <li><sup>n</sup>P<sub>r</sub> = <sup>n</sup>C<sub>r</sub> &times; r!</li>
+      <li><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n-r</sub></li>
+      <li>Keywords: arrange/seating/password = P, choose/team/committee = C</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 7 ==================== -->
+<div class="unit" id="unit-7">
+  <h2>Unit 7: Mathematical Logic</h2>
+
+  <div class="what-is">
+    <h3>What is Mathematical Logic?</h3>
+    <p>Mathematical logic is like the "rules of thinking" in mathematics. A <strong>proposition</strong> is simply a statement that can be either TRUE or FALSE (not both, not neither). For example, "The sun rises in the east" is TRUE. "2 + 2 = 5" is FALSE. But "Close the door" is NOT a proposition (it's a command, not true/false).</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Logical Operators (Connectives):</strong></p>
+    <table>
+      <tr><th>Operator</th><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td>AND (Conjunction)</td><td>&and;</td><td>Both must be true</td><td>p &and; q</td></tr>
+      <tr><td>OR (Disjunction)</td><td>&or;</td><td>At least one true</td><td>p &or; q</td></tr>
+      <tr><td>NOT (Negation)</td><td>&not;</td><td>Opposite truth value</td><td>&not;p</td></tr>
+      <tr><td>IMPLIES (Conditional)</td><td>&rarr;</td><td>If p then q</td><td>p &rarr; q</td></tr>
+      <tr><td>IF AND ONLY IF (Biconditional)</td><td>&harr;</td><td>Both same truth value</td><td>p &harr; q</td></tr>
+    </table>
+
+    <p><strong>Truth Tables:</strong></p>
+    <table>
+      <tr><th>p</th><th>q</th><th>p&and;q</th><th>p&or;q</th><th>&not;p</th><th>p&rarr;q</th><th>p&harr;q</th></tr>
+      <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td></tr>
+      <tr><td>F</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td><td>F</td></tr>
+      <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+    </table>
+    <p><em>Remember: p&rarr;q is FALSE only when p is TRUE and q is FALSE.</em></p>
+
+    <p><strong>Types of Statements:</strong></p>
+    <ul>
+      <li><strong>Tautology:</strong> Always TRUE (all T in final column). Example: p &or; &not;p</li>
+      <li><strong>Contradiction:</strong> Always FALSE (all F in final column). Example: p &and; &not;p</li>
+      <li><strong>Contingency:</strong> Sometimes true, sometimes false.</li>
+    </ul>
+
+    <p><strong>Logical Equivalence:</strong> Two statements are equivalent if they have the same truth table.</p>
+    <ul>
+      <li>Commutative: p &and; q &equiv; q &and; p</li>
+      <li>Associative: (p &and; q) &and; r &equiv; p &and; (q &and; r)</li>
+      <li>Distributive: p &and; (q &or; r) &equiv; (p &and; q) &or; (p &and; r)</li>
+      <li>De Morgan's: &not;(p &and; q) &equiv; &not;p &or; &not;q and &not;(p &or; q) &equiv; &not;p &and; &not;q</li>
+    </ul>
+
+    <p><strong>Normal Forms:</strong></p>
+    <ul>
+      <li><strong>DNF (Disjunctive Normal Form):</strong> OR of ANDs. Example: (p &and; q) &or; (&not;p &and; r)</li>
+      <li><strong>CNF (Conjunctive Normal Form):</strong> AND of ORs. Example: (p &or; q) &and; (&not;p &or; r)</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas / Equivalences</h3>
+    <ul>
+      <li>&not;(&not;p) &equiv; p (Double negation)</li>
+      <li>p &rarr; q &equiv; &not;p &or; q (Implication to disjunction)</li>
+      <li>p &harr; q &equiv; (p &rarr; q) &and; (q &rarr; p)</li>
+      <li>&not;(p &rarr; q) &equiv; p &and; &not;q</li>
+      <li>De Morgan's: &not;(p &and; q) &equiv; &not;p &or; &not;q</li>
+    </ul>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A proposition is a declarative statement that is either true or false. Examples: "5 > 3" (True), "2+2=5" (False). NOT propositions: questions, commands, opinions. The five logical connectives are AND(&and;), OR(&or;), NOT(&not;), IMPLIES(&rarr;), IFF(&harr;).</p>
+    <p><strong>For 5 marks:</strong> Explain AND, OR, NOT, IMPLIES with truth tables. Give real-life examples: AND = "I will go to the movie if I have money AND time" (both must be true). OR = "I will drink tea OR coffee" (at least one). NOT = "It is NOT raining" (opposite).</p>
+    <p><strong>For 10 marks:</strong> Define proposition, explain all 5 connectives with truth tables, explain tautology/contradiction/contingency, prove De Morgan's laws using truth tables, explain DNF and CNF with examples.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>AND:</strong> Both must be true (like "AND" means "together")</p>
+    <p><strong>OR:</strong> At least one true (like "OR" means "either is fine")</p>
+    <p><strong>IMPLIES (p&rarr;q):</strong> Only FALSE when promise is broken (p=T, q=F). "A true statement cannot imply a false one."</p>
+    <p><strong>Tautology vs Contradiction:</strong> Tautology = All True (T-tautology), Contradiction = All False (C-contradiction).</p>
+    <p><strong>De Morgan's in Logic:</strong> Same as in sets! Break the bar, change the sign: &not;(p&and;q) = &not;p&or;&not;q.</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Proposition = statement that is True or False</li>
+      <li>5 connectives: AND(&and;), OR(&or;), NOT(&not;), IMPLIES(&rarr;), IFF(&harr;)</li>
+      <li>AND: both true, OR: at least one true, NOT: opposite</li>
+      <li>p&rarr;q is false only when p=T and q=F</li>
+      <li>Tautology: always true, Contradiction: always false</li>
+      <li>De Morgan's: &not;(p&and;q) = &not;p&or;&not;q, &not;(p&or;q) = &not;p&and;&not;q</li>
+      <li>DNF = OR of ANDs, CNF = AND of ORs</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 8 ==================== -->
+<div class="unit" id="unit-8">
+  <h2>Unit 8: Relations</h2>
+
+  <div class="what-is">
+    <h3>What is a Relation?</h3>
+    <p>A <strong>relation</strong> connects elements of one set to elements of another set (or the same set). Think of it like a "connection" or "link" between things. For example, if Set A = {Rahul, Priya} and Set B = {Maths, Science, English}, then "Rahul studies Maths" is a relation from A to B. A relation is a subset of A &times; B (Cartesian product).</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Cartesian Product A&times;B:</strong> All possible ordered pairs (a, b) where a &isin; A and b &isin; B.</p>
+    <div class="example">A = {1,2}, B = {x,y} &rarr; A&times;B = {(1,x),(1,y),(2,x),(2,y)}</div>
+
+    <p><strong>A Relation R from A to B</strong> is any subset of A&times;B.</p>
+    <div class="example">R = {(1,x),(2,y)} is a relation from A to B</div>
+
+    <p><strong>Types of Relations (on a set A to itself):</strong></p>
+    <ul>
+      <li><strong>Reflexive:</strong> Every element relates to itself. (a,a) &isin; R for all a &isin; A.<br>
+      Example: "Equals" is reflexive because a = a for all a.</li>
+      <li><strong>Symmetric:</strong> If a relates to b, then b also relates to a. If (a,b) &isin; R then (b,a) &isin; R.<br>
+      Example: "Is sibling of" is symmetric (if X is sibling of Y, then Y is sibling of X).</li>
+      <li><strong>Transitive:</strong> If a relates to b and b relates to c, then a relates to c. If (a,b)&isin;R and (b,c)&isin;R then (a,c)&isin;R.<br>
+      Example: "Greater than" is transitive (if 5>3 and 3>1, then 5>1).</li>
+      <li><strong>Anti-symmetric:</strong> If a relates to b and b relates to a, then a = b. If (a,b)&isin;R and (b,a)&isin;R then a = b.<br>
+      Example: "&le;" is anti-symmetric.</li>
+    </ul>
+
+    <p><strong>Equivalence Relation:</strong> A relation that is Reflexive AND Symmetric AND Transitive (all three!).<br>
+    Example: "Equals" (=) is an equivalence relation.</p>
+
+    <p><strong>Partial Order:</strong> A relation that is Reflexive AND Anti-symmetric AND Transitive.<br>
+    Example: "&le;" (less than or equal) is a partial order.</p>
+
+    <p><strong>Representations:</strong></p>
+    <ul>
+      <li><strong>Arrow Diagram:</strong> Draw sets as boxes, arrows show relations</li>
+      <li><strong>Matrix Form:</strong> Create a table with 1s and 0s. 1 = relation exists, 0 = no relation</li>
+      <li><strong>Graph Form:</strong> Draw points (vertices) for elements, arrows for relations</li>
+    </ul>
+
+    <p><strong>Inverse Relation R<sup>-1</sup>:</strong> Reverse all pairs. If (a,b) &isin; R, then (b,a) &isin; R<sup>-1</sup>.</p>
+    <p><strong>Composition (S&omicron;R):</strong> If (a,b) &isin; R and (b,c) &isin; S, then (a,c) &isin; S&omicron;R.</p>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>If |A| = m and |B| = n, then |A&times;B| = m &times; n</p>
+    <p>Total possible relations from A to B = 2<sup>m&times;n</sup></p>
+    <p>Total possible relations on set A (A to A) = 2<sup>n&sup2;</sup> where |A| = n</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A relation R from set A to set B is a subset of the Cartesian product A&times;B. It connects elements of A to elements of B. Example: A={1,2,3}, R={(1,1),(2,2),(3,3),(1,2)} is a relation on A. The four properties are: Reflexive, Symmetric, Transitive, and Anti-symmetric.</p>
+    <p><strong>For 5 marks:</strong> Define and explain each property with example: (1) Reflexive: every element relates to itself, (2) Symmetric: if aRb then bRa, (3) Transitive: if aRb and bRc then aRc, (4) Anti-symmetric: if aRb and bRa then a=b. An equivalence relation satisfies Reflexive + Symmetric + Transitive. Example: "=" on integers.</p>
+    <p><strong>For 10 marks:</strong> Define relation, Cartesian product, all four properties with examples and counter-examples, equivalence relation, partial order, representations (arrow, matrix, graph), inverse relation, and composition of relations.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Properties: "RSTA"</strong> - <strong>R</strong>eflexive, <strong>S</strong>ymmetric, <strong>T</strong>ransitive, <strong>A</strong>nti-symmetric</p>
+    <p><strong>Equivalence = R + S + T</strong> (Remember: "ReST" - Rest is Equivalence!)</p>
+    <p><strong>Partial Order = R + A + T</strong> (Remember: "RAT" - Partial order is like a RAT!)</p>
+    <p><strong>Reflexive:</strong> "Everyone loves themselves" - each element relates to itself.</p>
+    <p><strong>Symmetric:</strong> "If I'm your friend, you're my friend" - goes both ways.</p>
+    <p><strong>Transitive:</strong> "Friend of my friend is my friend" - chains work.</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Relation R is a subset of A&times;B</li>
+      <li>Cartesian product A&times;B = all ordered pairs</li>
+      <li>Reflexive: every element relates to itself</li>
+      <li>Symmetric: if aRb then bRa</li>
+      <li>Transitive: if aRb and bRc then aRc</li>
+      <li>Anti-symmetric: if aRb and bRa then a = b</li>
+      <li>Equivalence = Reflexive + Symmetric + Transitive</li>
+      <li>Partial Order = Reflexive + Anti-symmetric + Transitive</li>
+      <li>Representations: Arrow diagram, Matrix, Graph</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 9 ==================== -->
+<div class="unit" id="unit-9">
+  <h2>Unit 9: Functions</h2>
+
+  <div class="what-is">
+    <h3>What is a Function?</h3>
+    <p>A <strong>function</strong> is a special type of relation where <em>every element in set A maps to exactly ONE element in set B</em>. Think of it like a vending machine: you put in one coin (input), you get exactly one item (output). You can't put in one coin and get two items! If f is a function from A to B, we write f: A &rarr; B.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Domain:</strong> Set A (the input set - all possible inputs)</p>
+    <p><strong>Codomain:</strong> Set B (the set where outputs come from)</p>
+    <p><strong>Range:</strong> The actual set of outputs (subset of codomain)</p>
+    <div class="example">
+      If f: {1,2,3} &rarr; {a,b,c,d} defined by f(1)=a, f(2)=b, f(3)=c<br>
+      Domain = {1,2,3}, Codomain = {a,b,c,d}, Range = {a,b,c}
+    </div>
+
+    <p><strong>Types of Functions:</strong></p>
+    <ul>
+      <li><strong>One-to-One (Injective):</strong> Different inputs give different outputs. No two elements of A map to the same element of B.<br>
+      Example: f(x) = 2x is injective (f(1)=2, f(2)=4, f(3)=6 - all different)</li>
+      <li><strong>Onto (Surjective):</strong> Every element of B is used as an output. Range = Codomain.<br>
+      Example: f: {1,2} &rarr; {a,b} with f(1)=a, f(2)=b is onto.</li>
+      <li><strong>One-to-One and Onto (Bijective):</strong> Both injective AND surjective. Every element of B is used exactly once.<br>
+      Example: f: {1,2,3} &rarr; {a,b,c} with f(1)=a, f(2)=b, f(3)=c is bijective.</li>
+    </ul>
+
+    <p><strong>Inverse Function f<sup>-1</sup>:</strong> Exists ONLY if f is bijective. It reverses the mapping: if f(a) = b, then f<sup>-1</sup>(b) = a.</p>
+
+    <p><strong>Composition of Functions:</strong> (f &omicron; g)(x) = f(g(x)). Apply g first, then apply f to the result.</p>
+    <div class="example">
+      If f(x) = x+1 and g(x) = 2x, then (f&omicron;g)(x) = f(g(x)) = f(2x) = 2x+1<br>
+      And (g&omicron;f)(x) = g(f(x)) = g(x+1) = 2(x+1) = 2x+2 &ne; f&omicron;g (composition is NOT commutative!)
+    </div>
+
+    <p><strong>Real-valued Functions:</strong></p>
+    <ul>
+      <li><strong>Constant function:</strong> f(x) = c (always same value). Example: f(x) = 5</li>
+      <li><strong>Identity function:</strong> f(x) = x (output = input)</li>
+      <li><strong>Polynomial function:</strong> f(x) = a<sub>n</sub>x<sup>n</sup> + ... + a<sub>1</sub>x + a<sub>0</sub></li>
+      <li><strong>Rational function:</strong> f(x) = p(x)/q(x) where q(x) &ne; 0</li>
+      <li><strong>Modulus function:</strong> f(x) = |x| (always positive). |−3| = 3, |5| = 5</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>Composition: (f &omicron; g)(x) = f(g(x))</p>
+    <p>Inverse: If f(a) = b, then f<sup>-1</sup>(b) = a</p>
+    <p>Modulus: |x| = x if x &ge; 0, |x| = -x if x < 0</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A function f: A&rarr;B maps each element of A to exactly one element of B. Domain = set of inputs, Range = set of outputs. Types: One-to-one (different inputs &rarr; different outputs), Onto (every element of B is an output), Bijective (both one-to-one and onto).</p>
+    <p><strong>For 5 marks:</strong> Define function, domain, codomain, range. Explain three types with examples: Injective (f(x)=2x - each input gives unique output), Surjective (f(x)=x on same domain and codomain - all outputs covered), Bijective (f(x)=x+1 on integers - both properties). Explain that inverse exists only for bijective functions.</p>
+    <p><strong>For 10 marks:</strong> Full explanation with all types, composition with examples, inverse function, and real-valued functions (constant, identity, polynomial, rational, modulus) with graphs described.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>One-to-One (Injective):</strong> "One input &rarr; One unique output, no sharing!"</p>
+    <p><strong>Onto (Surjective):</strong> "ONTO = ALL of B is covered!"</p>
+    <p><strong>Bijective:</strong> "Perfect matching" - like arranging seats: each person gets exactly one unique seat.</p>
+    <p><strong>Composition (f&omicron;g):</strong> "g first, then f" - read right to left! Like f(g(x)) - the inside function runs first.</p>
+    <p><strong>Inverse:</strong> "Only Bijective functions can have inverses" - because only they can be reversed without confusion.</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Function: each input maps to exactly one output</li>
+      <li>Domain = inputs, Codomain = possible outputs, Range = actual outputs</li>
+      <li>Injective (one-to-one): different inputs &rarr; different outputs</li>
+      <li>Surjective (onto): Range = Codomain</li>
+      <li>Bijective: both injective and surjective</li>
+      <li>Inverse exists only for bijective functions</li>
+      <li>Composition: (f&omicron;g)(x) = f(g(x)), g runs first</li>
+      <li>Types: Constant, Identity, Polynomial, Rational, Modulus</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 10 ==================== -->
+<div class="unit" id="unit-10">
+  <h2>Unit 10: Vectors</h2>
+
+  <div class="what-is">
+    <h3>What is a Vector?</h3>
+    <p>A <strong>vector</strong> is a quantity that has BOTH magnitude (size/amount) AND direction. Think of wind: "30 km/h towards North" - it has a speed (30 km/h) and a direction (North). A <strong>scalar</strong> has only magnitude, like temperature (30&deg;C - no direction!).</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Representation:</strong> A 3D vector is written as <strong>v = ai + bj + ck</strong> where a, b, c are numbers and i, j, k are unit vectors along x, y, z axes.</p>
+    <div class="example">v = 3i + 4j + 5k means: 3 units along x-axis, 4 along y-axis, 5 along z-axis</div>
+
+    <p><strong>Magnitude (Length):</strong></p>
+    <p>|v| = &radic;(a&sup2; + b&sup2; + c&sup2;)</p>
+    <div class="example">|v| = |3i + 4j + 5k| = &radic;(9 + 16 + 25) = &radic;50 = 5&radic;2</div>
+
+    <p><strong>Vector Operations:</strong></p>
+    <ul>
+      <li><strong>Addition:</strong> Add corresponding components. (a<sub>1</sub>i + b<sub>1</sub>j + c<sub>1</sub>k) + (a<sub>2</sub>i + b<sub>2</sub>j + c<sub>2</sub>k) = (a<sub>1</sub>+a<sub>2</sub>)i + (b<sub>1</sub>+b<sub>2</sub>)j + (c<sub>1</sub>+c<sub>2</sub>)k</li>
+      <li><strong>Subtraction:</strong> Subtract corresponding components.</li>
+      <li><strong>Scalar Multiplication:</strong> Multiply each component by the scalar. k(ai + bj + ck) = (ka)i + (kb)j + (kc)k</li>
+    </ul>
+    <div class="example">
+      (2i + 3j) + (4i + j) = 6i + 4j &nbsp; | &nbsp; 3(2i + j) = 6i + 3j
+    </div>
+
+    <p><strong>Dot Product (Scalar Product):</strong> Results in a NUMBER (scalar).</p>
+    <p>A&middot;B = |A||B|cos&theta; = a<sub>1</sub>b<sub>1</sub> + a<sub>2</sub>b<sub>2</sub> + a<sub>3</sub>b<sub>3</sub></p>
+    <div class="example">
+      A = 2i + 3j + k, B = i + 4j + 2k<br>
+      A&middot;B = 2(1) + 3(4) + 1(2) = 2 + 12 + 2 = <strong>16</strong>
+    </div>
+    <p>If A&middot;B = 0, the vectors are <strong>perpendicular</strong> (angle = 90&deg;).</p>
+
+    <p><strong>Cross Product (Vector Product):</strong> Results in a VECTOR perpendicular to both A and B.</p>
+    <p>A&times;B = |A||B|sin&theta; n&#770; (where n&#770; is the unit vector perpendicular to both)</p>
+    <p>Calculated using determinant method for 3D vectors.</p>
+
+    <p><strong>Unit Vector:</strong> A vector with magnitude 1 in the direction of a.</p>
+    <p>&acirc; = a / |a|</p>
+    <div class="example">Unit vector of 3i + 4j = (3i + 4j) / &radic;(9+16) = (3i + 4j)/5 = (3/5)i + (4/5)j</div>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>Magnitude: |v| = &radic;(a&sup2; + b&sup2; + c&sup2;)</p>
+    <p>Dot Product: A&middot;B = a<sub>1</sub>b<sub>1</sub> + a<sub>2</sub>b<sub>2</sub> + a<sub>3</sub>b<sub>3</sub> = |A||B|cos&theta;</p>
+    <p>Cross Product: |A&times;B| = |A||B|sin&theta;</p>
+    <p>Angle between vectors: cos&theta; = (A&middot;B) / (|A||B|)</p>
+    <p>Unit vector: &acirc; = a/|a|</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A vector has both magnitude and direction (e.g., velocity, force). A scalar has only magnitude (e.g., mass, temperature). Vectors are represented as ai + bj + ck. The magnitude is |v| = &radic;(a&sup2;+b&sup2;+c&sup2;). Two vectors are equal if they have the same magnitude and direction.</p>
+    <p><strong>For 5 marks:</strong> Explain vector addition, subtraction, scalar multiplication with examples. Then explain dot product: A&middot;B = a1b1 + a2b2 + a3b3. It gives a scalar and helps find the angle between vectors. If dot product = 0, vectors are perpendicular. Give a numerical example.</p>
+    <p><strong>For 10 marks:</strong> Cover all topics: definition, scalar vs vector, representation, magnitude, addition, subtraction, scalar multiplication, dot product with formula and example, cross product with formula, unit vector, angle between vectors, and applications in computer graphics.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Vector vs Scalar:</strong> "Vector has Direction, Scalar is just a Number"</p>
+    <p><strong>Dot Product:</strong> "DOT = NUMBER" (scalar result). Think: "Dot = a dot/point = a single number"</p>
+    <p><strong>Cross Product:</strong> "CROSS = VECTOR" (vector result). Think: "Cross = X marks a direction"</p>
+    <p><strong>Perpendicular test:</strong> "If Dot Product = 0, vectors are perpendicular (90&deg;)"</p>
+    <p><strong>Unit Vector:</strong> "Divide by its own length" to make it unit (length 1)</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Vector: has magnitude AND direction. Scalar: magnitude only</li>
+      <li>Written as ai + bj + ck in 3D</li>
+      <li>Magnitude: |v| = &radic;(a&sup2;+b&sup2;+c&sup2;)</li>
+      <li>Addition/Subtraction: component-wise</li>
+      <li>Dot Product: gives scalar, A&middot;B = a<sub>1</sub>b<sub>1</sub>+a<sub>2</sub>b<sub>2</sub>+a<sub>3</sub>b<sub>3</sub></li>
+      <li>Cross Product: gives vector perpendicular to both</li>
+      <li>Unit vector: &acirc; = a/|a|</li>
+      <li>Perpendicular if A&middot;B = 0</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 11 ==================== -->
+<div class="unit" id="unit-11">
+  <h2>Unit 11: Matrices and Determinants</h2>
+
+  <div class="what-is">
+    <h3>What is a Matrix?</h3>
+    <p>A <strong>matrix</strong> is a rectangular arrangement of numbers in rows and columns, like a spreadsheet or a table. It's written inside square brackets [ ]. The size is "rows &times; columns". For example, a 2&times;3 matrix has 2 rows and 3 columns. Matrices are used everywhere in computers - graphics, AI, data processing!</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Types of Matrices:</strong></p>
+    <ul>
+      <li><strong>Row Matrix:</strong> Only 1 row. [1 2 3] (1&times;3)</li>
+      <li><strong>Column Matrix:</strong> Only 1 column.</li>
+      <li><strong>Square Matrix:</strong> Same number of rows and columns (n&times;n).</li>
+      <li><strong>Diagonal Matrix:</strong> Square matrix with zeros except on the main diagonal.</li>
+      <li><strong>Identity Matrix (I):</strong> Diagonal matrix with all 1s on diagonal. A&times;I = I&times;A = A.</li>
+      <li><strong>Null/Zero Matrix (O):</strong> All elements are 0.</li>
+      <li><strong>Symmetric Matrix:</strong> A = A<sup>T</sup> (matrix equals its transpose)</li>
+      <li><strong>Skew-symmetric Matrix:</strong> A = -A<sup>T</sup></li>
+      <li><strong>Singular:</strong> |A| = 0 (determinant is zero)</li>
+      <li><strong>Non-singular:</strong> |A| &ne; 0</li>
+    </ul>
+
+    <p><strong>Matrix Operations:</strong></p>
+    <ul>
+      <li><strong>Addition:</strong> Add corresponding elements. Both matrices must be the SAME SIZE.</li>
+      <li><strong>Subtraction:</strong> Subtract corresponding elements. Same size required.</li>
+      <li><strong>Scalar Multiplication:</strong> Multiply every element by the number.</li>
+      <li><strong>Matrix Multiplication:</strong> Number of columns of A must equal number of rows of B. Result has rows of A and columns of B.</li>
+    </ul>
+    <div class="example">
+      <strong>Matrix Multiplication Example:</strong><br>
+      A = [1 2; 3 4] &nbsp; B = [5 6; 7 8]<br>
+      A&times;B = [1&times;5+2&times;7 &nbsp; 1&times;6+2&times;8; 3&times;5+4&times;7 &nbsp; 3&times;6+4&times;8]<br>
+      = [19 22; 43 50]
+    </div>
+
+    <p><strong>Transpose (A<sup>T</sup>):</strong> Rows become columns, columns become rows.</p>
+    <div class="example">If A = [1 2 3; 4 5 6], then A<sup>T</sup> = [1 4; 2 5; 3 6]</div>
+
+    <p><strong>Determinant:</strong></p>
+    <p>For 2&times;2: |[a b; c d]| = ad - bc</p>
+    <div class="example">|[3 2; 5 4]| = 3&times;4 - 2&times;5 = 12 - 10 = 2</div>
+    <p>For 3&times;3: Expand along any row/column using cofactors.</p>
+    <div class="example">
+      |[1 2 3; 0 4 5; 1 0 6]| (expand along row 1)<br>
+      = 1(4&times;6 - 5&times;0) - 2(0&times;6 - 5&times;1) + 3(0&times;0 - 4&times;1)<br>
+      = 1(24) - 2(-5) + 3(-4) = 24 + 10 - 12 = <strong>22</strong>
+    </div>
+
+    <p><strong>Minor M<sub>ij</sub>:</strong> Determinant of the matrix after removing row i and column j.</p>
+    <p><strong>Cofactor C<sub>ij</sub>:</strong> C<sub>ij</sub> = (-1)<sup>i+j</sup> &times; M<sub>ij</sub></p>
+    <p><strong>Adjoint:</strong> Transpose of the cofactor matrix.</p>
+    <p><strong>Inverse:</strong> A<sup>-1</sup> = (1/|A|) &times; Adj(A) &nbsp; (exists only if |A| &ne; 0)</p>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>|A| for 2&times;2: ad - bc</p>
+    <p>Cofactor: C<sub>ij</sub> = (-1)<sup>i+j</sup> &times; M<sub>ij</sup></p>
+    <p>Adjoint = Transpose of Cofactor Matrix</p>
+    <p>A<sup>-1</sup> = (1/|A|) &times; Adj(A)</p>
+    <p>A &times; A<sup>-1</sup> = A<sup>-1</sup> &times; A = I (Identity Matrix)</p>
+    <p>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> (reverse order!)</p>
+    <p>|AB| = |A| &times; |B|</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A matrix is a rectangular array of numbers in rows and columns. Types include: row, column, square, diagonal, identity (I), zero, symmetric, and skew-symmetric. The determinant of a 2&times;2 matrix [a b; c d] is ad-bc. A matrix is singular if its determinant is 0.</p>
+    <p><strong>For 5 marks:</strong> Explain matrix addition, multiplication, and transpose with examples. For multiplication, emphasize that columns of A must equal rows of B. Show a 2&times;2 multiplication example. Define determinant and calculate for a 2&times;2 matrix.</p>
+    <p><strong>For 10 marks:</strong> Cover: definition, all types, all operations with examples, determinant for 2&times;2 and 3&times;3, minor, cofactor, adjoint, inverse formula A<sup>-1</sup> = Adj(A)/|A|, and fully solve one inverse matrix problem step by step.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Matrix Multiplication order:</strong> "Row of A &times; Column of B" - go across the row of first, down column of second.</p>
+    <p><strong>Determinant 2&times;2:</strong> "Diagonal multiplication: Top-left&times;Bottom-right MINUS Top-right&times;Bottom-left"</p>
+    <p><strong>Inverse exists only if:</strong> |A| &ne; 0 (Non-singular). "No determinant = No inverse!"</p>
+    <p><strong>Cofactor sign pattern:</strong> Starts with +, alternates: + - + / - + - / + - + (like a checkerboard).</p>
+    <p><strong>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>:</strong> "Transpose reverses the order" - like taking off shoes and socks: reverse order!</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Matrix = rectangular array of numbers in rows and columns</li>
+      <li>Types: Row, Column, Square, Diagonal, Identity(I), Zero, Symmetric, Skew-symmetric</li>
+      <li>Addition/Subtraction: same size, element-wise</li>
+      <li>Multiplication: columns of A = rows of B</li>
+      <li>Transpose: rows &harr; columns</li>
+      <li>Determinant 2&times;2: ad - bc</li>
+      <li>Cofactor C<sub>ij</sub> = (-1)<sup>i+j</sup> &times; Minor</li>
+      <li>Inverse: A<sup>-1</sup> = Adj(A)/|A|, exists if |A| &ne; 0</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 12 ==================== -->
+<div class="unit" id="unit-12">
+  <h2>Unit 12: Mensuration</h2>
+
+  <div class="what-is">
+    <h3>What is Mensuration?</h3>
+    <p><strong>Mensuration</strong> is the branch of mathematics that deals with measuring lengths, areas, and volumes of different shapes. Think of it as "geometry calculations" - finding how much space a shape covers (area), how much paint you need for a wall, or how much water fills a tank (volume).</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts - 2D Shapes (Area and Perimeter)</h3>
+    <table>
+      <tr><th>Shape</th><th>Area</th><th>Perimeter</th></tr>
+      <tr><td>Square (side a)</td><td>a&sup2;</td><td>4a</td></tr>
+      <tr><td>Rectangle (a &times; b)</td><td>a &times; b</td><td>2(a + b)</td></tr>
+      <tr><td>Triangle (base b, height h)</td><td>&frac12; &times; b &times; h</td><td>a + b + c</td></tr>
+      <tr><td>Circle (radius r)</td><td>&pi;r&sup2;</td><td>2&pi;r (circumference)</td></tr>
+      <tr><td>Parallelogram (base b, height h)</td><td>b &times; h</td><td>2(a + b)</td></tr>
+      <tr><td>Trapezium (parallel sides a,b; height h)</td><td>&frac12;(a + b) &times; h</td><td>a + b + c + d</td></tr>
+    </table>
+
+    <p><strong>Heron's Formula</strong> (when you know 3 sides but not the height):</p>
+    <p>Area = &radic;[s(s-a)(s-b)(s-c)] where s = (a+b+c)/2 (semi-perimeter)</p>
+    <div class="example">
+      Triangle with sides 3, 4, 5: s = (3+4+5)/2 = 6<br>
+      Area = &radic;[6&times;3&times;2&times;1] = &radic;36 = <strong>6</strong>
+    </div>
+
+    <h3>3D Shapes (Volume and Surface Area)</h3>
+    <table>
+      <tr><th>Shape</th><th>Volume</th><th>Surface Area</th></tr>
+      <tr><td>Cube (side a)</td><td>a&sup3;</td><td>6a&sup2;</td></tr>
+      <tr><td>Cuboid (a&times;b&times;c)</td><td>a&times;b&times;c</td><td>2(ab+bc+ac)</td></tr>
+      <tr><td>Sphere (radius r)</td><td>(4/3)&pi;r&sup3;</td><td>4&pi;r&sup2;</td></tr>
+      <tr><td>Cylinder (radius r, height h)</td><td>&pi;r&sup2;h</td><td>2&pi;r(r+h)</td></tr>
+      <tr><td>Cone (radius r, height h)</td><td>(1/3)&pi;r&sup2;h</td><td>&pi;r(r+L), L=&radic;(r&sup2;+h&sup2;)</td></tr>
+    </table>
+    <div class="example">
+      Volume of a cylinder with r=7, h=10: V = &pi;r&sup2;h = (22/7)&times;49&times;10 = 1540 cubic units
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <h3>All Important Formulas at a Glance</h3>
+    <p><strong>2D:</strong> Square: A=a&sup2;, P=4a | Rectangle: A=ab, P=2(a+b) | Triangle: A=&frac12;bh | Circle: A=&pi;r&sup2;, C=2&pi;r | Heron's: A=&radic;[s(s-a)(s-b)(s-c)]</p>
+    <p><strong>3D:</strong> Cube: V=a&sup3;, SA=6a&sup2; | Cuboid: V=abc, SA=2(ab+bc+ac) | Sphere: V=(4/3)&pi;r&sup3;, SA=4&pi;r&sup2; | Cylinder: V=&pi;r&sup2;h, SA=2&pi;r(r+h) | Cone: V=(1/3)&pi;r&sup2;h, SA=&pi;r(r+L)</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> Mensuration is the measurement of geometric figures. For a rectangle: Area = length &times; breadth, Perimeter = 2(l+b). For a circle: Area = &pi;r&sup2;, Circumference = 2&pi;r. For a triangle: Area = &frac12; &times; base &times; height.</p>
+    <p><strong>For 5 marks:</strong> Write all 2D formulas (square, rectangle, triangle, circle, parallelogram) with labeled diagrams described. Include Heron's formula with an example. Explain the difference between area (space inside) and perimeter (boundary length).</p>
+    <p><strong>For 10 marks:</strong> Write ALL formulas for both 2D and 3D shapes in tables. Solve 2-3 numerical problems (e.g., find volume of a cylinder, surface area of a sphere, area of triangle using Heron's formula). Explain each step clearly.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Area vs Perimeter:</strong> "Area = Inside, Perimeter = Border/Edge"</p>
+    <p><strong>Volume = "How much fills it?" Surface Area = "How much wraps it?"</strong></p>
+    <p><strong>Cone vs Cylinder volume:</strong> Cone is exactly 1/3 of a cylinder with same base and height!</p>
+    <p><strong>Sphere surface area = 4 &times; circle area:</strong> 4&pi;r&sup2; = 4 &times; &pi;r&sup2;</p>
+    <p><strong>Heron's Formula:</strong> "S under 4 S's" - &radic;[s(s-a)(s-b)(s-c)] - one s outside, three s-minus-side inside.</p>
+    <p><strong>&pi; = 22/7 &approx; 3.14:</strong> "22 divided by 7" - easy to remember!</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Square: A=a&sup2;, P=4a | Rectangle: A=ab, P=2(a+b)</li>
+      <li>Triangle: A=&frac12;bh, Heron's: A=&radic;[s(s-a)(s-b)(s-c)]</li>
+      <li>Circle: A=&pi;r&sup2;, C=2&pi;r</li>
+      <li>Cube: V=a&sup3;, SA=6a&sup2; | Cuboid: V=abc, SA=2(ab+bc+ac)</li>
+      <li>Sphere: V=(4/3)&pi;r&sup3;, SA=4&pi;r&sup2;</li>
+      <li>Cylinder: V=&pi;r&sup2;h, SA=2&pi;r(r+h)</li>
+      <li>Cone: V=(1/3)&pi;r&sup2;h, SA=&pi;r(r+L) where L=&radic;(r&sup2;+h&sup2;)</li>
+      <li>Cone volume = 1/3 of cylinder volume</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 13 ==================== -->
+<div class="unit" id="unit-13">
+  <h2>Unit 13: System of Linear Equations</h2>
+
+  <div class="what-is">
+    <h3>What is a System of Linear Equations?</h3>
+    <p>A <strong>linear equation</strong> is an equation where all variables have power 1 (no x&sup2;, x&sup3;, etc.). For example, 2x + 3y = 7 is linear. A <strong>system</strong> means multiple equations together that need to be solved at the same time. For example: x + y = 5 and x - y = 1. The solution is the values of x and y that make BOTH equations true at the same time.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Types of Systems:</strong></p>
+    <ul>
+      <li><strong>Homogeneous:</strong> All constant terms are 0. Example: 2x + 3y = 0, x - y = 0. Always has the trivial solution x=0, y=0.</li>
+      <li><strong>Non-homogeneous:</strong> At least one constant is non-zero. Example: 2x + 3y = 5.</li>
+    </ul>
+
+    <p><strong>Solution Types:</strong></p>
+    <ul>
+      <li><strong>Unique solution:</strong> Exactly one answer (lines intersect at one point). System is <em>consistent</em>.</li>
+      <li><strong>Infinite solutions:</strong> Many answers (lines overlap completely). System is <em>consistent</em>.</li>
+      <li><strong>No solution:</strong> No answer exists (lines are parallel, never meet). System is <em>inconsistent</em>.</li>
+    </ul>
+
+    <p><strong>Matrix Form:</strong> AX = B where A = coefficient matrix, X = variable matrix, B = constant matrix.</p>
+    <div class="example">
+      2x + 3y = 5 and x - y = 1 can be written as:<br>
+      [2 3; 1 -1] [x; y] = [5; 1] &nbsp;&nbsp; Here A=[2 3; 1 -1], X=[x; y], B=[5; 1]
+    </div>
+
+    <p><strong>Cramer's Rule</strong> (for solving systems using determinants):</p>
+    <p>For 2 variables: x = |A<sub>1</sub>|/|A|, y = |A<sub>2</sub>|/|A|</p>
+    <p>Where A<sub>1</sub> = A with column 1 replaced by B, A<sub>2</sub> = A with column 2 replaced by B.</p>
+    <div class="example">
+      Solve: 2x + 3y = 5, x - y = 1<br>
+      A = [2 3; 1 -1], |A| = 2(-1) - 3(1) = -5<br>
+      A<sub>1</sub> = [5 3; 1 -1], |A<sub>1</sub>| = 5(-1) - 3(1) = -8<br>
+      A<sub>2</sub> = [2 5; 1 1], |A<sub>2</sub>| = 2(1) - 5(1) = -3<br>
+      x = |A<sub>1</sub>|/|A| = -8/-5 = 8/5, y = |A<sub>2</sub>|/|A| = -3/-5 = 3/5
+    </div>
+
+    <p>For 3 variables: x = |A<sub>1</sub>|/|A|, y = |A<sub>2</sub>|/|A|, z = |A<sub>3</sub>|/|A|</p>
+    <p>Where A<sub>i</sub> replaces the i-th column of A with B.</p>
+
+    <p><strong>Important:</strong> If |A| = 0, Cramer's Rule cannot be used (system has no unique solution).</p>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>Cramer's Rule: x<sub>i</sub> = |A<sub>i</sub>| / |A|</p>
+    <p>A<sub>i</sub> = Matrix A with column i replaced by constant matrix B</p>
+    <p>If |A| &ne; 0: Unique solution exists (consistent)</p>
+    <p>If |A| = 0 and all |A<sub>i</sub>| = 0: Infinite solutions (consistent)</p>
+    <p>If |A| = 0 and at least one |A<sub>i</sub>| &ne; 0: No solution (inconsistent)</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A system of linear equations is a set of equations with the same variables, all with degree 1. It can be: (1) Consistent with unique solution (lines meet at one point), (2) Consistent with infinite solutions (same line), (3) Inconsistent with no solution (parallel lines). In matrix form: AX = B.</p>
+    <p><strong>For 5 marks:</strong> Explain Cramer's Rule with a complete 2-variable example. Show how to form matrices A, A<sub>1</sub>, A<sub>2</sub>, calculate determinants, and find x and y. Mention that it works only when |A| &ne; 0.</p>
+    <p><strong>For 10 marks:</strong> Define system of linear equations, homogeneous vs non-homogeneous, consistent vs inconsistent, matrix form, Cramer's Rule for both 2 and 3 variables with complete solved examples for each.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Cramer's Rule:</strong> "Replace the column, find the ratio!" Replace column 1 with B to get x, column 2 with B to get y, column 3 with B to get z.</p>
+    <p><strong>x = |A<sub>1</sub>|/|A|:</strong> "1 for x (1st variable = 1st column)"</p>
+    <p><strong>Consistent vs Inconsistent:</strong> Consistent = "CAN solve", Inconsistent = "CAN'T solve"</p>
+    <p><strong>|A| = 0:</strong> "Zero determinant means Cramer's Rule FAILS - don't use it!"</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Linear equation: all variables have power 1</li>
+      <li>System: multiple equations solved together</li>
+      <li>Homogeneous: all constants = 0, Non-homogeneous: at least one constant &ne; 0</li>
+      <li>Matrix form: AX = B</li>
+      <li>Three cases: Unique, Infinite, No solution</li>
+      <li>Cramer's Rule: x<sub>i</sub> = |A<sub>i</sub>|/|A| (replace column i with B)</li>
+      <li>Works only when |A| &ne; 0</li>
+      <li>|A| = 0 means no unique solution</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 14 ==================== -->
+<div class="unit" id="unit-14">
+  <h2>Unit 14: Polynomials</h2>
+
+  <div class="what-is">
+    <h3>What is a Polynomial?</h3>
+    <p>A <strong>polynomial</strong> is a mathematical expression made by adding/subtracting terms with variables raised to whole number powers (0, 1, 2, 3...). Think of it as a "many-term" expression. Examples: 3x&sup2; + 2x + 1, x&sup3; - 5x, 7 (yes, a single number is also a polynomial!). The highest power tells you the "degree" of the polynomial.</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>General Form:</strong> p(x) = a<sub>n</sub>x<sup>n</sup> + a<sub>n-1</sub>x<sup>n-1</sup> + ... + a<sub>1</sub>x + a<sub>0</sub></p>
+    <p>where a<sub>n</sub>, a<sub>n-1</sub>, ..., a<sub>0</sub> are numbers (coefficients) and a<sub>n</sub> &ne; 0.</p>
+
+    <p><strong>Types by Degree:</strong></p>
+    <table>
+      <tr><th>Degree</th><th>Name</th><th>Example</th></tr>
+      <tr><td>0</td><td>Constant polynomial</td><td>p(x) = 5</td></tr>
+      <tr><td>1</td><td>Linear polynomial</td><td>p(x) = 2x + 3</td></tr>
+      <tr><td>2</td><td>Quadratic polynomial</td><td>p(x) = x&sup2; + 3x + 2</td></tr>
+      <tr><td>3</td><td>Cubic polynomial</td><td>p(x) = x&sup3; - 2x + 1</td></tr>
+    </table>
+
+    <p><strong>Operations on Polynomials:</strong></p>
+    <ul>
+      <li><strong>Addition:</strong> Add coefficients of same-degree terms.</li>
+      <li><strong>Subtraction:</strong> Subtract coefficients of same-degree terms.</li>
+      <li><strong>Multiplication:</strong> Multiply each term of first by each term of second, combine like terms.</li>
+    </ul>
+    <div class="example">
+      (2x&sup2; + 3x + 1) + (x&sup2; - 2x + 4) = 3x&sup2; + x + 5<br>
+      (x + 2)(x + 3) = x&sup2; + 3x + 2x + 6 = x&sup2; + 5x + 6
+    </div>
+
+    <p><strong>Roots/Zeros of a Polynomial:</strong></p>
+    <p>A root is a value of x that makes p(x) = 0. If p(2) = 0, then x = 2 is a root.</p>
+    <div class="example">
+      p(x) = x&sup2; - 5x + 6 = (x-2)(x-3). Roots are x = 2 and x = 3.<br>
+      Check: p(2) = 4 - 10 + 6 = 0 &check; &nbsp; p(3) = 9 - 15 + 6 = 0 &check;
+    </div>
+
+    <p><strong>Remainder Theorem:</strong> When p(x) is divided by (x - a), the remainder = p(a).</p>
+    <div class="example">
+      p(x) = x&sup3; + 2x - 1, divided by (x - 1)<br>
+      Remainder = p(1) = 1 + 2 - 1 = <strong>2</strong> (no need to do long division!)
+    </div>
+
+    <p><strong>Factor Theorem:</strong> (x - a) is a factor of p(x) if and only if p(a) = 0.</p>
+    <div class="example">
+      Is (x-2) a factor of x&sup2; - 5x + 6? Check: p(2) = 4 - 10 + 6 = 0. Yes! It's a factor.</div>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>Degree = highest power of x</p>
+    <p>Remainder Theorem: Remainder of p(x) &divide; (x-a) = p(a)</p>
+    <p>Factor Theorem: (x-a) is a factor of p(x) &harr; p(a) = 0</p>
+    <p>Quadratic formula: x = [-b &pm; &radic;(b&sup2; - 4ac)] / 2a (for ax&sup2; + bx + c = 0)</p>
+    <p>Sum of roots = -b/a, Product of roots = c/a (for quadratic)</p>
+    <p>A polynomial of degree n has at most n roots.</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A polynomial is an expression like a<sub>n</sub>x<sup>n</sup> + ... + a<sub>1</sub>x + a<sub>0</sub> where powers are non-negative integers. The degree is the highest power. Types: constant (degree 0), linear (1), quadratic (2), cubic (3). Example: x&sup2; + 3x + 2 is a quadratic polynomial with degree 2.</p>
+    <p><strong>For 5 marks:</strong> Define polynomial, degree, and types. Explain Remainder Theorem with example: "When p(x) is divided by (x-a), remainder = p(a)." Explain Factor Theorem: "(x-a) is a factor if p(a) = 0." Solve one example of each.</p>
+    <p><strong>For 10 marks:</strong> Full coverage: definition, types, operations (addition, subtraction, multiplication with examples), roots/zeros, Remainder Theorem with proof idea and example, Factor Theorem with proof idea and example, and quadratic formula. Include 3-4 solved examples.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Remainder Theorem:</strong> "Just PLUG IN the number!" To find remainder when dividing by (x-a), simply calculate p(a).</p>
+    <p><strong>Factor Theorem:</strong> "If p(a) = 0, then (x-a) is a FACTOR" - zero remainder means it divides perfectly.</p>
+    <p><strong>Types by degree:</strong> "0-C, 1-L, 2-Q, 3-C" = Constant, Linear, Quadratic, Cubic.</p>
+    <p><strong>Quadratic formula:</strong> "Minus b, plus or minus, square root of b-squared minus 4ac, all over 2a"</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Polynomial: expression with variables raised to whole number powers</li>
+      <li>Degree: highest power of x</li>
+      <li>Types: Constant(0), Linear(1), Quadratic(2), Cubic(3)</li>
+      <li>Operations: add/subtract same-degree terms, multiply all combinations</li>
+      <li>Root/Zero: value of x where p(x) = 0</li>
+      <li>Remainder Theorem: remainder of p(x)&divide;(x-a) = p(a)</li>
+      <li>Factor Theorem: (x-a) is a factor if p(a) = 0</li>
+      <li>Quadratic formula: x = [-b &pm; &radic;(b&sup2;-4ac)] / 2a</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== UNIT 15 ==================== -->
+<div class="unit" id="unit-15">
+  <h2>Unit 15: Introduction to Graph Theory</h2>
+
+  <div class="what-is">
+    <h3>What is Graph Theory?</h3>
+    <p>In everyday life, a "graph" means a chart or diagram. But in mathematics, a <strong>graph</strong> is a collection of <strong>points</strong> (called <em>vertices</em>) connected by <strong>lines</strong> (called <em>edges</em>). Think of a social network: people are vertices, friendships are edges. Or a road map: cities are vertices, roads are edges. Graph theory studies these connections!</p>
+  </div>
+
+  <div class="concept-box">
+    <h3>Key Concepts</h3>
+    <p><strong>Graph G = (V, E)</strong> where V = set of vertices (points), E = set of edges (lines connecting points).</p>
+    <div class="example">
+      G = ({A, B, C}, {(A,B), (B,C), (A,C)}) has 3 vertices A, B, C and 3 edges connecting them.
+    </div>
+
+    <p><strong>Types of Graphs:</strong></p>
+    <ul>
+      <li><strong>Undirected Graph:</strong> Edges have no direction. If A-B is an edge, you can go from A to B or B to A.</li>
+      <li><strong>Directed Graph (Digraph):</strong> Edges have arrows showing direction. A&rarr;B means you can only go from A to B.</li>
+      <li><strong>Simple Graph:</strong> No loops (edge from vertex to itself) and no multiple edges between same pair.</li>
+      <li><strong>Multi Graph:</strong> May have multiple edges between same pair of vertices.</li>
+      <li><strong>Complete Graph (K<sub>n</sub>):</strong> Every vertex is connected to every other vertex. Has n(n-1)/2 edges.</li>
+      <li><strong>Null Graph:</strong> Vertices exist but no edges at all.</li>
+    </ul>
+
+    <p><strong>Degree of a Vertex:</strong> Number of edges connected to it.</p>
+    <div class="example">In a triangle (3 vertices, 3 edges), each vertex has degree 2.</div>
+    <p><strong>Handshaking Lemma:</strong> Sum of all degrees = 2 &times; (number of edges). (Because each edge is counted twice - once at each end.)</p>
+
+    <p><strong>Path:</strong> A sequence of edges connecting vertices without repeating any edge.</p>
+    <p><strong>Circuit/Cycle:</strong> A path that starts and ends at the same vertex.</p>
+
+    <p><strong>Euler Graph:</strong> Contains an <strong>Euler circuit</strong> - a path that visits <em>every edge exactly once</em> and returns to the starting point.</p>
+    <p><strong>Condition:</strong> An Euler circuit exists if and only if EVERY vertex has an EVEN degree.</p>
+    <div class="example">A triangle (all degrees = 2, which is even) has an Euler circuit: A&rarr;B&rarr;C&rarr;A.</div>
+
+    <p><strong>Hamiltonian Graph:</strong> Contains a <strong>Hamiltonian circuit</strong> - a path that visits <em>every vertex exactly once</em> and returns to the starting point.</p>
+    <div class="example">In a complete graph K<sub>4</sub>, you can visit all 4 vertices and return to start.</div>
+
+    <p><strong>Tree:</strong> A connected graph with NO cycles. Has exactly n-1 edges for n vertices.</p>
+    <div class="example">A family tree, file directory structure, or organization chart are examples of trees.</div>
+
+    <p><strong>Matrix Representations:</strong></p>
+    <ul>
+      <li><strong>Adjacency Matrix:</strong> A square matrix where entry [i][j] = number of edges between vertex i and vertex j.</li>
+      <li><strong>Incidence Matrix:</strong> Rows = vertices, Columns = edges. Entry = 1 if vertex is connected to that edge, 0 otherwise.</li>
+    </ul>
+    <div class="example">
+      For graph with 2 vertices (A, B) and 1 edge between them:<br>
+      Adjacency Matrix = [0 1; 1 0] (A-B exists, no self-loops)<br>
+      Incidence Matrix = [1; 1] (both vertices connected to edge 1)
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <h3>Important Formulas</h3>
+    <p>Sum of degrees = 2 &times; |E| (Handshaking Lemma)</p>
+    <p>Complete graph K<sub>n</sub>: Number of edges = n(n-1)/2</p>
+    <p>Tree with n vertices: Number of edges = n - 1</p>
+    <p>Euler circuit exists: All vertices have even degree</p>
+    <p>Adjacency matrix is always square (n&times;n for n vertices)</p>
+  </div>
+
+  <div class="exam-box">
+    <h3>What to Write in Exam</h3>
+    <p><strong>For 3 marks:</strong> A graph G = (V, E) consists of vertices (points) and edges (lines). Types: directed (edges have arrows), undirected (no arrows), simple (no loops/multiple edges), complete (all connected), null (no edges). The degree of a vertex is the number of edges connected to it.</p>
+    <p><strong>For 5 marks:</strong> Define graph, explain types with small examples. Define degree and state the Handshaking Lemma (sum of degrees = 2&times;|E|). Define path and circuit. Explain Euler graph condition (all even degrees) with example.</p>
+    <p><strong>For 10 marks:</strong> Full coverage: definition, all graph types with examples, degree, Handshaking Lemma with proof idea, path, circuit, Euler graph (with condition and example), Hamiltonian graph (with example), Tree (definition and properties), and matrix representations (adjacency and incidence) with examples.</p>
+  </div>
+
+  <div class="memory-box">
+    <h3>Memory Trick</h3>
+    <p><strong>Graph components:</strong> "V for Vertices (points), E for Edges (lines)"</p>
+    <p><strong>Complete graph edges:</strong> "n(n-1)/2" - think of it as "everyone shakes hands with everyone else" (like nC2).</p>
+    <p><strong>Euler = Edges, Hamiltonian = Vertices:</strong> Euler visits every EDGE once, Hamiltonian visits every VERTEX once. "E for Edge, H for Hub (vertex)"</p>
+    <p><strong>Euler circuit condition:</strong> "ALL EVEN = Euler!" Every vertex must have even degree.</p>
+    <p><strong>Tree:</strong> "Connected + No cycles = Tree" - like a real tree with branches that never loop back.</p>
+    <p><strong>Adjacency Matrix:</strong> "Who is next to whom?" Incidence Matrix: "Which edges touch which vertices?"</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Unit Summary (Quick Revision)</h3>
+    <ul>
+      <li>Graph G = (V, E): vertices and edges</li>
+      <li>Types: Directed, Undirected, Simple, Multi, Complete, Null</li>
+      <li>Degree = number of edges at a vertex</li>
+      <li>Handshaking Lemma: sum of degrees = 2 &times; |E|</li>
+      <li>Complete graph K<sub>n</sub> has n(n-1)/2 edges</li>
+      <li>Euler circuit: visits every edge once; all vertices must have even degree</li>
+      <li>Hamiltonian circuit: visits every vertex once</li>
+      <li>Tree: connected, no cycles, n-1 edges for n vertices</li>
+      <li>Adjacency matrix: n&times;n, shows which vertices are connected</li>
+      <li>Incidence matrix: vertices &times; edges, shows which vertex connects to which edge</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== END OF UNITS ========== -->
+
+</div><!-- end container -->
+
+<!-- ========== BACK TO TOP BUTTON ========== -->
+<a href="#top" class="back-to-top" title="Back to Top">&uarr;</a>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <p>BCAC102 - Mathematics for Computers | YCMOU University Study Notes</p>
+  <p>Created By <span class="creator">Mayur Hole</span></p>
+  <p style="font-size:0.8em; margin-top:10px;">All 15 Units Covered | Exam-Focused | Beginner Friendly</p>
+</div>
+
+</body>
+</html>
